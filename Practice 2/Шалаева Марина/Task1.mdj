@@ -4,31 +4,12 @@
 	"name": "Untitled",
 	"ownedElements": [
 		{
-			"_type": "UMLModel",
-			"_id": "AAAAAAFF+qBWK6M3Z8Y=",
-			"_parent": {
-				"$ref": "AAAAAAFF+h6SjaM2Hec="
-			},
-			"name": "Model",
-			"ownedElements": [
-				{
-					"_type": "UMLClassDiagram",
-					"_id": "AAAAAAFF+qBtyKM79qY=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "Main",
-					"defaultDiagram": true
-				}
-			]
-		},
-		{
 			"_type": "ERDDataModel",
 			"_id": "AAAAAAF75WYgP87K2g4=",
 			"_parent": {
 				"$ref": "AAAAAAFF+h6SjaM2Hec="
 			},
-			"name": "Data Model1",
+			"name": "Data Model",
 			"ownedElements": [
 				{
 					"_type": "ERDDiagram",
@@ -830,7 +811,7 @@
 									"font": "Arial;13;0",
 									"left": 259,
 									"top": 240,
-									"width": 10.8291015625,
+									"width": 11.55908203125,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 30,
@@ -878,8 +859,8 @@
 								"$ref": "AAAAAAF75WYgQM7LX70="
 							},
 							"font": "Arial;13;0",
-							"left": 256,
-							"top": 152,
+							"left": 320,
+							"top": 208,
 							"width": 161,
 							"height": 65,
 							"text": "One book can belong to many categories; one category can belong to many books"
@@ -994,6 +975,104 @@
 							"headNameLabel": {
 								"$ref": "AAAAAAF76V8m09HDC7s="
 							}
+						},
+						{
+							"_type": "ERDRelationshipView",
+							"_id": "AAAAAAF77s8ybyYHMhA=",
+							"_parent": {
+								"$ref": "AAAAAAF75WYgQM7LX70="
+							},
+							"model": {
+								"$ref": "AAAAAAF77s8ybiYD5Ok="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAF77s8ybyYIJFM=",
+									"_parent": {
+										"$ref": "AAAAAAF77s8ybyYHMhA="
+									},
+									"font": "Arial;13;0",
+									"left": 192,
+									"top": 143,
+									"width": 41.919921875,
+									"height": 13,
+									"alpha": -1.79889918671688,
+									"distance": 57.48912940721924,
+									"hostEdge": {
+										"$ref": "AAAAAAF77s8ybyYHMhA="
+									},
+									"edgePosition": 1,
+									"text": "Include"
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAF77s8ybyYJNbI=",
+									"_parent": {
+										"$ref": "AAAAAAF77s8ybyYHMhA="
+									},
+									"font": "Arial;13;0",
+									"left": 167,
+									"top": 160,
+									"width": 7.22998046875,
+									"height": 13,
+									"alpha": -5.556542800652298,
+									"distance": 24.08318915758459,
+									"hostEdge": {
+										"$ref": "AAAAAAF77s8ybyYHMhA="
+									},
+									"edgePosition": 2,
+									"text": "1"
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAF77s8ybyYK4gk=",
+									"_parent": {
+										"$ref": "AAAAAAF77s8ybyYHMhA="
+									},
+									"font": "Arial;13;0",
+									"left": 272,
+									"top": 200,
+									"width": 9.38818359375,
+									"height": 13,
+									"alpha": 0.23860926043925126,
+									"distance": 38.07886552931954,
+									"hostEdge": {
+										"$ref": "AAAAAAF77s8ybyYHMhA="
+									},
+									"text": "N"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAF75WmUDs8KAFQ="
+							},
+							"tail": {
+								"$ref": "AAAAAAF75WmUDs8KAFQ="
+							},
+							"points": "187:184;187:163;268:163;268:215;239:215",
+							"nameLabel": {
+								"$ref": "AAAAAAF77s8ybyYIJFM="
+							},
+							"tailNameLabel": {
+								"$ref": "AAAAAAF77s8ybyYJNbI="
+							},
+							"headNameLabel": {
+								"$ref": "AAAAAAF77s8ybyYK4gk="
+							}
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAF77tHU8yYtHsc=",
+							"_parent": {
+								"$ref": "AAAAAAF75WYgQM7LX70="
+							},
+							"font": "Arial;13;0",
+							"left": 168,
+							"top": 72,
+							"width": 209,
+							"height": 64,
+							"text": "Caterogy can contain children categories (subcategories); category can be contained in one parent category"
 						}
 					]
 				},
@@ -1205,8 +1284,7 @@
 								"$ref": "AAAAAAF75WeUvc7dJi8="
 							},
 							"name": "ISBN",
-							"length": 0,
-							"primaryKey": true
+							"length": 0
 						},
 						{
 							"_type": "ERDColumn",
@@ -1426,6 +1504,37 @@
 									"$ref": "AAAAAAF75WmUDs8IgOc="
 								},
 								"cardinality": "1..*"
+							}
+						},
+						{
+							"_type": "ERDRelationship",
+							"_id": "AAAAAAF77s8ybiYD5Ok=",
+							"_parent": {
+								"$ref": "AAAAAAF75WmUDs8IgOc="
+							},
+							"name": "Include",
+							"end1": {
+								"_type": "ERDRelationshipEnd",
+								"_id": "AAAAAAF77s8ybyYENEU=",
+								"_parent": {
+									"$ref": "AAAAAAF77s8ybiYD5Ok="
+								},
+								"name": "1",
+								"reference": {
+									"$ref": "AAAAAAF75WmUDs8IgOc="
+								}
+							},
+							"end2": {
+								"_type": "ERDRelationshipEnd",
+								"_id": "AAAAAAF77s8ybyYFJqs=",
+								"_parent": {
+									"$ref": "AAAAAAF77s8ybiYD5Ok="
+								},
+								"name": "N",
+								"reference": {
+									"$ref": "AAAAAAF75WmUDs8IgOc="
+								},
+								"cardinality": "0..*"
 							}
 						}
 					],

@@ -4,31 +4,12 @@
 	"name": "Untitled",
 	"ownedElements": [
 		{
-			"_type": "UMLModel",
-			"_id": "AAAAAAFF+qBWK6M3Z8Y=",
-			"_parent": {
-				"$ref": "AAAAAAFF+h6SjaM2Hec="
-			},
-			"name": "Model",
-			"ownedElements": [
-				{
-					"_type": "UMLClassDiagram",
-					"_id": "AAAAAAFF+qBtyKM79qY=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "Main",
-					"defaultDiagram": true
-				}
-			]
-		},
-		{
 			"_type": "ERDDataModel",
 			"_id": "AAAAAAF76dMMZNPT9lU=",
 			"_parent": {
 				"$ref": "AAAAAAFF+h6SjaM2Hec="
 			},
-			"name": "Data Model1",
+			"name": "Data Model",
 			"ownedElements": [
 				{
 					"_type": "ERDDiagram",
@@ -38,57 +19,6 @@
 					},
 					"name": "ERDDiagram1",
 					"ownedViews": [
-						{
-							"_type": "ERDEntityView",
-							"_id": "AAAAAAF76dREOtPaai0=",
-							"_parent": {
-								"$ref": "AAAAAAF76dMMZdPUy6A="
-							},
-							"model": {
-								"$ref": "AAAAAAF76dREOdPYRCk="
-							},
-							"subViews": [
-								{
-									"_type": "LabelView",
-									"_id": "AAAAAAF76dREOtPbDhA=",
-									"_parent": {
-										"$ref": "AAAAAAF76dREOtPaai0="
-									},
-									"font": "Arial;13;1",
-									"left": 360,
-									"top": 109,
-									"width": 54.05908203125,
-									"height": 13,
-									"text": "Human"
-								},
-								{
-									"_type": "ERDColumnCompartmentView",
-									"_id": "AAAAAAF76dREOtPchPM=",
-									"_parent": {
-										"$ref": "AAAAAAF76dREOtPaai0="
-									},
-									"model": {
-										"$ref": "AAAAAAF76dREOdPYRCk="
-									},
-									"font": "Arial;13;0",
-									"left": 360,
-									"top": 127,
-									"width": 54.05908203125,
-									"height": 10
-								}
-							],
-							"font": "Arial;13;0",
-							"left": 360,
-							"top": 104,
-							"width": 54.05908203125,
-							"height": 33,
-							"nameLabel": {
-								"$ref": "AAAAAAF76dREOtPbDhA="
-							},
-							"columnCompartment": {
-								"$ref": "AAAAAAF76dREOtPchPM="
-							}
-						},
 						{
 							"_type": "ERDEntityView",
 							"_id": "AAAAAAF76dTjp9PndqY=",
@@ -190,204 +120,6 @@
 							"columnCompartment": {
 								"$ref": "AAAAAAF76dUIttP2JB8="
 							}
-						},
-						{
-							"_type": "ERDRelationshipView",
-							"_id": "AAAAAAF76dYlyNQFfcg=",
-							"_parent": {
-								"$ref": "AAAAAAF76dMMZdPUy6A="
-							},
-							"model": {
-								"$ref": "AAAAAAF76dYlyNQBMr8="
-							},
-							"subViews": [
-								{
-									"_type": "EdgeLabelView",
-									"_id": "AAAAAAF76dYlyNQGdT8=",
-									"_parent": {
-										"$ref": "AAAAAAF76dYlyNQFfcg="
-									},
-									"font": "Arial;13;0",
-									"left": 256,
-									"top": 127,
-									"width": 9.38818359375,
-									"height": 13,
-									"alpha": 0.7086265053208022,
-									"distance": 18.439088914585774,
-									"hostEdge": {
-										"$ref": "AAAAAAF76dYlyNQFfcg="
-									},
-									"edgePosition": 1,
-									"text": "is"
-								},
-								{
-									"_type": "EdgeLabelView",
-									"_id": "AAAAAAF76dYlydQHGA4=",
-									"_parent": {
-										"$ref": "AAAAAAF76dYlyNQFfcg="
-									},
-									"font": "Arial;13;0",
-									"left": 336,
-									"top": 128,
-									"width": 7.22998046875,
-									"height": 13,
-									"alpha": 0.5880028233278596,
-									"distance": 25.238858928247925,
-									"hostEdge": {
-										"$ref": "AAAAAAF76dYlyNQFfcg="
-									},
-									"edgePosition": 2,
-									"text": "1"
-								},
-								{
-									"_type": "EdgeLabelView",
-									"_id": "AAAAAAF76dYlydQIAtE=",
-									"_parent": {
-										"$ref": "AAAAAAF76dYlyNQFfcg="
-									},
-									"font": "Arial;13;0",
-									"left": 259,
-									"top": 152,
-									"width": 9.38818359375,
-									"height": 13,
-									"alpha": -0.6947384254940375,
-									"distance": 23.430749027719962,
-									"hostEdge": {
-										"$ref": "AAAAAAF76dYlyNQFfcg="
-									},
-									"text": "N"
-								}
-							],
-							"font": "Arial;13;0",
-							"head": {
-								"$ref": "AAAAAAF76dTjp9PndqY="
-							},
-							"tail": {
-								"$ref": "AAAAAAF76dREOtPaai0="
-							},
-							"lineStyle": 2,
-							"points": "360:120;248:120;248:176",
-							"nameLabel": {
-								"$ref": "AAAAAAF76dYlyNQGdT8="
-							},
-							"tailNameLabel": {
-								"$ref": "AAAAAAF76dYlydQHGA4="
-							},
-							"headNameLabel": {
-								"$ref": "AAAAAAF76dYlydQIAtE="
-							}
-						},
-						{
-							"_type": "UMLNoteView",
-							"_id": "AAAAAAF76dcHg9QheS8=",
-							"_parent": {
-								"$ref": "AAAAAAF76dMMZdPUy6A="
-							},
-							"font": "Arial;13;0",
-							"left": 192,
-							"top": 72,
-							"width": 121,
-							"height": 38,
-							"text": "Every man is a human"
-						},
-						{
-							"_type": "ERDRelationshipView",
-							"_id": "AAAAAAF76durTdRXARE=",
-							"_parent": {
-								"$ref": "AAAAAAF76dMMZdPUy6A="
-							},
-							"model": {
-								"$ref": "AAAAAAF76durTdRTU6Q="
-							},
-							"subViews": [
-								{
-									"_type": "EdgeLabelView",
-									"_id": "AAAAAAF76durTdRYBkg=",
-									"_parent": {
-										"$ref": "AAAAAAF76durTdRXARE="
-									},
-									"font": "Arial;13;0",
-									"left": 504,
-									"top": 128,
-									"width": 9.38818359375,
-									"height": 13,
-									"alpha": -0.7086260389342474,
-									"distance": 18.439088914585774,
-									"hostEdge": {
-										"$ref": "AAAAAAF76durTdRXARE="
-									},
-									"edgePosition": 1,
-									"text": "is"
-								},
-								{
-									"_type": "EdgeLabelView",
-									"_id": "AAAAAAF76durTdRZ5w4=",
-									"_parent": {
-										"$ref": "AAAAAAF76durTdRXARE="
-									},
-									"font": "Arial;13;0",
-									"left": 432,
-									"top": 127,
-									"width": 7.22998046875,
-									"height": 13,
-									"alpha": -0.56672901164122,
-									"distance": 26.076809620810597,
-									"hostEdge": {
-										"$ref": "AAAAAAF76durTdRXARE="
-									},
-									"edgePosition": 2,
-									"text": "1"
-								},
-								{
-									"_type": "EdgeLabelView",
-									"_id": "AAAAAAF76durTdRaDPk=",
-									"_parent": {
-										"$ref": "AAAAAAF76durTdRXARE="
-									},
-									"font": "Arial;13;0",
-									"left": 496,
-									"top": 150,
-									"width": 9.38818359375,
-									"height": 13,
-									"alpha": -5.472151806360582,
-									"distance": 27.586228448267445,
-									"hostEdge": {
-										"$ref": "AAAAAAF76durTdRXARE="
-									},
-									"text": "N"
-								}
-							],
-							"font": "Arial;13;0",
-							"head": {
-								"$ref": "AAAAAAF76dUIttP0FLA="
-							},
-							"tail": {
-								"$ref": "AAAAAAF76dREOtPaai0="
-							},
-							"lineStyle": 2,
-							"points": "413:120;520:120;520:176",
-							"nameLabel": {
-								"$ref": "AAAAAAF76durTdRYBkg="
-							},
-							"tailNameLabel": {
-								"$ref": "AAAAAAF76durTdRZ5w4="
-							},
-							"headNameLabel": {
-								"$ref": "AAAAAAF76durTdRaDPk="
-							}
-						},
-						{
-							"_type": "UMLNoteView",
-							"_id": "AAAAAAF76dzEg9R39Ao=",
-							"_parent": {
-								"$ref": "AAAAAAF76dMMZdPUy6A="
-							},
-							"font": "Arial;13;0",
-							"left": 464,
-							"top": 72,
-							"width": 121,
-							"height": 38,
-							"text": "Every woman is a human"
 						},
 						{
 							"_type": "ERDEntityView",
@@ -686,8 +418,8 @@
 								"$ref": "AAAAAAF76dMMZdPUy6A="
 							},
 							"font": "Arial;13;0",
-							"left": 32,
-							"top": 152,
+							"left": 168,
+							"top": 120,
 							"width": 169,
 							"height": 38,
 							"text": "Every father is a man and every son is a man"
@@ -699,8 +431,8 @@
 								"$ref": "AAAAAAF76dMMZdPUy6A="
 							},
 							"font": "Arial;13;0",
-							"left": 576,
-							"top": 152,
+							"left": 448,
+							"top": 120,
 							"width": 233,
 							"height": 38,
 							"text": "Every mother is a woman and every daughter is a woman"
@@ -1317,106 +1049,6 @@
 							"width": 441,
 							"height": 38,
 							"text": "Every son and daughter has only one mother and only one father; every mother and father can have several sons and daughters"
-						}
-					]
-				},
-				{
-					"_type": "ERDEntity",
-					"_id": "AAAAAAF76dREOdPYRCk=",
-					"_parent": {
-						"$ref": "AAAAAAF76dMMZNPT9lU="
-					},
-					"name": "Human",
-					"ownedElements": [
-						{
-							"_type": "ERDRelationship",
-							"_id": "AAAAAAF76dYlyNQBMr8=",
-							"_parent": {
-								"$ref": "AAAAAAF76dREOdPYRCk="
-							},
-							"name": "is",
-							"end1": {
-								"_type": "ERDRelationshipEnd",
-								"_id": "AAAAAAF76dYlyNQCRCY=",
-								"_parent": {
-									"$ref": "AAAAAAF76dYlyNQBMr8="
-								},
-								"name": "1",
-								"reference": {
-									"$ref": "AAAAAAF76dREOdPYRCk="
-								}
-							},
-							"end2": {
-								"_type": "ERDRelationshipEnd",
-								"_id": "AAAAAAF76dYlyNQDE00=",
-								"_parent": {
-									"$ref": "AAAAAAF76dYlyNQBMr8="
-								},
-								"name": "N",
-								"reference": {
-									"$ref": "AAAAAAF76dTjptPlBXA="
-								},
-								"cardinality": "1..*"
-							}
-						},
-						{
-							"_type": "ERDRelationship",
-							"_id": "AAAAAAF76duUn9Q3EWI=",
-							"_parent": {
-								"$ref": "AAAAAAF76dREOdPYRCk="
-							},
-							"end1": {
-								"_type": "ERDRelationshipEnd",
-								"_id": "AAAAAAF76duUn9Q4+lQ=",
-								"_parent": {
-									"$ref": "AAAAAAF76duUn9Q3EWI="
-								},
-								"reference": {
-									"$ref": "AAAAAAF76dREOdPYRCk="
-								}
-							},
-							"end2": {
-								"_type": "ERDRelationshipEnd",
-								"_id": "AAAAAAF76duUn9Q56eI=",
-								"_parent": {
-									"$ref": "AAAAAAF76duUn9Q3EWI="
-								},
-								"reference": {
-									"$ref": "AAAAAAF76dREOdPYRCk="
-								},
-								"cardinality": "0..*"
-							}
-						},
-						{
-							"_type": "ERDRelationship",
-							"_id": "AAAAAAF76durTdRTU6Q=",
-							"_parent": {
-								"$ref": "AAAAAAF76dREOdPYRCk="
-							},
-							"name": "is",
-							"end1": {
-								"_type": "ERDRelationshipEnd",
-								"_id": "AAAAAAF76durTdRUqEo=",
-								"_parent": {
-									"$ref": "AAAAAAF76durTdRTU6Q="
-								},
-								"name": "1",
-								"reference": {
-									"$ref": "AAAAAAF76dREOdPYRCk="
-								}
-							},
-							"end2": {
-								"_type": "ERDRelationshipEnd",
-								"_id": "AAAAAAF76durTdRVOuE=",
-								"_parent": {
-									"$ref": "AAAAAAF76durTdRTU6Q="
-								},
-								"name": "N",
-								"reference": {
-									"$ref": "AAAAAAF76dUIttPyouI="
-								},
-								"cardinality": "1..*"
-							}
 						}
 					]
 				},
