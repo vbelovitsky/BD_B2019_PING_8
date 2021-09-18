@@ -219,6 +219,104 @@
 							"width": 113,
 							"height": 105,
 							"text": "One arbitrator can judge many teams; team can have only one arbirator during the football match"
+						},
+						{
+							"_type": "ERDRelationshipView",
+							"_id": "AAAAAAF7+P1tGC0fmPQ=",
+							"_parent": {
+								"$ref": "AAAAAAF76ZteoXq4THU="
+							},
+							"model": {
+								"$ref": "AAAAAAF7+P1tEy0bl8Q="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAF7+P1tGC0gNnw=",
+									"_parent": {
+										"$ref": "AAAAAAF7+P1tGC0fmPQ="
+									},
+									"font": "Arial;13;0",
+									"left": 319,
+									"top": 151,
+									"width": 52.01904296875,
+									"height": 13,
+									"alpha": -2.0812850970132537,
+									"distance": 28.653097563788805,
+									"hostEdge": {
+										"$ref": "AAAAAAF7+P1tGC0fmPQ="
+									},
+									"edgePosition": 1,
+									"text": "Play with"
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAF7+P1tGS0hPWo=",
+									"_parent": {
+										"$ref": "AAAAAAF7+P1tGC0fmPQ="
+									},
+									"font": "Arial;13;0",
+									"left": 270,
+									"top": 176,
+									"width": 50.578125,
+									"height": 13,
+									"alpha": -5.219487220626184,
+									"distance": 20.591260281974,
+									"hostEdge": {
+										"$ref": "AAAAAAF7+P1tGC0fmPQ="
+									},
+									"edgePosition": 2,
+									"text": "1"
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAF7+P1tHC0iZ8c=",
+									"_parent": {
+										"$ref": "AAAAAAF7+P1tGC0fmPQ="
+									},
+									"font": "Arial;13;0",
+									"left": 363,
+									"top": 216,
+									"width": 7.22998046875,
+									"height": 13,
+									"alpha": -0.5235987755982988,
+									"distance": 30,
+									"hostEdge": {
+										"$ref": "AAAAAAF7+P1tGC0fmPQ="
+									},
+									"text": "1"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAF76aZV4nq+B00="
+							},
+							"tail": {
+								"$ref": "AAAAAAF76aZV4nq+B00="
+							},
+							"points": "314:192;314:172;370:172;370:208;341:208",
+							"nameLabel": {
+								"$ref": "AAAAAAF7+P1tGC0gNnw="
+							},
+							"tailNameLabel": {
+								"$ref": "AAAAAAF7+P1tGS0hPWo="
+							},
+							"headNameLabel": {
+								"$ref": "AAAAAAF7+P1tHC0iZ8c="
+							}
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAF7+P5mhy05NF0=",
+							"_parent": {
+								"$ref": "AAAAAAF76ZteoXq4THU="
+							},
+							"font": "Arial;13;0",
+							"left": 392,
+							"top": 152,
+							"width": 113,
+							"height": 51,
+							"text": "One team can have only one opponent team."
 						}
 					]
 				},
@@ -228,7 +326,39 @@
 					"_parent": {
 						"$ref": "AAAAAAF76ZteoXq36mQ="
 					},
-					"name": "Team"
+					"name": "Team",
+					"ownedElements": [
+						{
+							"_type": "ERDRelationship",
+							"_id": "AAAAAAF7+P1tEy0bl8Q=",
+							"_parent": {
+								"$ref": "AAAAAAF76aZV4nq8JO8="
+							},
+							"name": "Play with",
+							"end1": {
+								"_type": "ERDRelationshipEnd",
+								"_id": "AAAAAAF7+P1tFC0c8PE=",
+								"_parent": {
+									"$ref": "AAAAAAF7+P1tEy0bl8Q="
+								},
+								"name": "1",
+								"reference": {
+									"$ref": "AAAAAAF76aZV4nq8JO8="
+								}
+							},
+							"end2": {
+								"_type": "ERDRelationshipEnd",
+								"_id": "AAAAAAF7+P1tFS0dDiU=",
+								"_parent": {
+									"$ref": "AAAAAAF7+P1tEy0bl8Q="
+								},
+								"name": "1",
+								"reference": {
+									"$ref": "AAAAAAF76aZV4nq8JO8="
+								}
+							}
+						}
+					]
 				},
 				{
 					"_type": "ERDEntity",
