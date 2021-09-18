@@ -25,4 +25,4 @@
 
 ## Задача 3
 
-![alt_text](Scheme.png)
+![alt_text](Task3.png)
