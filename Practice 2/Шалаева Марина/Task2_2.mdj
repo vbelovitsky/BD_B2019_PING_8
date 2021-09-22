@@ -208,83 +208,70 @@
 							}
 						},
 						{
-							"_type": "UMLNoteView",
-							"_id": "AAAAAAF76cB+l3wO1Bk=",
-							"_parent": {
-								"$ref": "AAAAAAF76ZteoXq4THU="
-							},
-							"font": "Arial;13;0",
-							"left": 72,
-							"top": 120,
-							"width": 113,
-							"height": 105,
-							"text": "One arbitrator can judge many teams; team can have only one arbirator during the football match"
-						},
-						{
 							"_type": "ERDRelationshipView",
-							"_id": "AAAAAAF7+P1tGC0fmPQ=",
+							"_id": "AAAAAAF8CXXGhrNGzIU=",
 							"_parent": {
 								"$ref": "AAAAAAF76ZteoXq4THU="
 							},
 							"model": {
-								"$ref": "AAAAAAF7+P1tEy0bl8Q="
+								"$ref": "AAAAAAF8CXXGhbNC80s="
 							},
 							"subViews": [
 								{
 									"_type": "EdgeLabelView",
-									"_id": "AAAAAAF7+P1tGC0gNnw=",
+									"_id": "AAAAAAF8CXXGh7NHSkk=",
 									"_parent": {
-										"$ref": "AAAAAAF7+P1tGC0fmPQ="
+										"$ref": "AAAAAAF8CXXGhrNGzIU="
 									},
 									"font": "Arial;13;0",
-									"left": 319,
+									"left": 335,
 									"top": 151,
-									"width": 52.01904296875,
+									"width": 58.51904296875,
 									"height": 13,
-									"alpha": -2.0812850970132537,
-									"distance": 28.653097563788805,
+									"alpha": -2.736701748530919,
+									"distance": 15.231546211727817,
 									"hostEdge": {
-										"$ref": "AAAAAAF7+P1tGC0fmPQ="
+										"$ref": "AAAAAAF8CXXGhrNGzIU="
 									},
 									"edgePosition": 1,
-									"text": "Play with"
+									"text": "Plays with"
 								},
 								{
 									"_type": "EdgeLabelView",
-									"_id": "AAAAAAF7+P1tGS0hPWo=",
+									"_id": "AAAAAAF8CXXGh7NIpqM=",
 									"_parent": {
-										"$ref": "AAAAAAF7+P1tGC0fmPQ="
+										"$ref": "AAAAAAF8CXXGhrNGzIU="
 									},
 									"font": "Arial;13;0",
-									"left": 270,
-									"top": 176,
-									"width": 50.578125,
+									"left": 295,
+									"top": 160,
+									"width": 9.38818359375,
 									"height": 13,
-									"alpha": -5.219487220626184,
-									"distance": 20.591260281974,
+									"alpha": 0.5235987755982988,
+									"distance": 30,
 									"hostEdge": {
-										"$ref": "AAAAAAF7+P1tGC0fmPQ="
+										"$ref": "AAAAAAF8CXXGhrNGzIU="
 									},
 									"edgePosition": 2,
-									"text": "1"
+									"text": "N"
 								},
 								{
 									"_type": "EdgeLabelView",
-									"_id": "AAAAAAF7+P1tHC0iZ8c=",
+									"_id": "AAAAAAF8CXXGh7NJskI=",
 									"_parent": {
-										"$ref": "AAAAAAF7+P1tGC0fmPQ="
+										"$ref": "AAAAAAF8CXXGhrNGzIU="
 									},
 									"font": "Arial;13;0",
-									"left": 363,
+									"left": 361,
 									"top": 216,
-									"width": 7.22998046875,
+									"width": 10.8291015625,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 30,
 									"hostEdge": {
-										"$ref": "AAAAAAF7+P1tGC0fmPQ="
+										"$ref": "AAAAAAF8CXXGhrNGzIU="
 									},
-									"text": "1"
+									"text": "M"
 								}
 							],
 							"font": "Arial;13;0",
@@ -296,27 +283,14 @@
 							},
 							"points": "314:192;314:172;370:172;370:208;341:208",
 							"nameLabel": {
-								"$ref": "AAAAAAF7+P1tGC0gNnw="
+								"$ref": "AAAAAAF8CXXGh7NHSkk="
 							},
 							"tailNameLabel": {
-								"$ref": "AAAAAAF7+P1tGS0hPWo="
+								"$ref": "AAAAAAF8CXXGh7NIpqM="
 							},
 							"headNameLabel": {
-								"$ref": "AAAAAAF7+P1tHC0iZ8c="
+								"$ref": "AAAAAAF8CXXGh7NJskI="
 							}
-						},
-						{
-							"_type": "UMLNoteView",
-							"_id": "AAAAAAF7+P5mhy05NF0=",
-							"_parent": {
-								"$ref": "AAAAAAF76ZteoXq4THU="
-							},
-							"font": "Arial;13;0",
-							"left": 392,
-							"top": 152,
-							"width": 113,
-							"height": 51,
-							"text": "One team can have only one opponent team."
 						}
 					]
 				},
@@ -330,32 +304,34 @@
 					"ownedElements": [
 						{
 							"_type": "ERDRelationship",
-							"_id": "AAAAAAF7+P1tEy0bl8Q=",
+							"_id": "AAAAAAF8CXXGhbNC80s=",
 							"_parent": {
 								"$ref": "AAAAAAF76aZV4nq8JO8="
 							},
-							"name": "Play with",
+							"name": "Plays with",
 							"end1": {
 								"_type": "ERDRelationshipEnd",
-								"_id": "AAAAAAF7+P1tFC0c8PE=",
+								"_id": "AAAAAAF8CXXGhbND9ik=",
 								"_parent": {
-									"$ref": "AAAAAAF7+P1tEy0bl8Q="
+									"$ref": "AAAAAAF8CXXGhbNC80s="
 								},
-								"name": "1",
+								"name": "N",
 								"reference": {
 									"$ref": "AAAAAAF76aZV4nq8JO8="
-								}
+								},
+								"cardinality": "0..*"
 							},
 							"end2": {
 								"_type": "ERDRelationshipEnd",
-								"_id": "AAAAAAF7+P1tFS0dDiU=",
+								"_id": "AAAAAAF8CXXGhbNEdLs=",
 								"_parent": {
-									"$ref": "AAAAAAF7+P1tEy0bl8Q="
+									"$ref": "AAAAAAF8CXXGhbNC80s="
 								},
-								"name": "1",
+								"name": "M",
 								"reference": {
 									"$ref": "AAAAAAF76aZV4nq8JO8="
-								}
+								},
+								"cardinality": "0..*"
 							}
 						}
 					]
