@@ -1,6 +1,7 @@
 Task 2.  
 
 1. E/R diagram for the library system  
+(ID in Copy is a copy number)  
 
 ![E/R diagram for the library system](t1.png?raw=true)
    
