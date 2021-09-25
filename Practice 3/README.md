@@ -16,10 +16,10 @@
 5. Квартира (name_of_country, name_of_city, name_of_street, number_of_house, number_of_apart)
 
 Связь один к многим:
-Страна -> Город находится в (name_of_country, name_of_city)
-Город -> Улица находится в (name_of_country, name_of_city, name_of_street)
-Улица -> Дом находится на (name_of_country, name_of_city, name_of_street, number_of_house)
-Дом -> Квартира находится в (name_of_country, name_of_city, name_of_street, number_of_house, number_of_apart)
+* Страна -> Город находится в (name_of_country, name_of_city)
+* Город -> Улица находится в (name_of_country, name_of_city, name_of_street)
+* Улица -> Дом находится на (name_of_country, name_of_city, name_of_street, number_of_house)
+* Дом -> Квартира находится в (name_of_country, name_of_city, name_of_street, number_of_house, number_of_apart)
 
 ## Task 2.2.2
 Сущности:
@@ -27,7 +27,7 @@
 2. Арбитр (arbitrator_id)
 
 Связь N:M:1 
-Команда -> Команда-> Арбитр (team_num, team_num, arbitrator_id) 
+* Команда -> Команда-> Арбитр (team_num, team_num, arbitrator_id) 
 
 ## Task 2.2.3
 У каждого человека есть отец и мать.
@@ -35,8 +35,8 @@
 1. Человек (name, sex)
 
 Связи один к многим:
-Человек -> Человек является отцом (name_of_father, name_of_child)
-Человек -> Человек является матерью (name_of_mother, name_of_child)
+* Человек -> Человек является отцом (name_of_father, name_of_child)
+* Человек -> Человек является матерью (name_of_mother, name_of_child)
 
 ## Task 2.3
 Сущности:
@@ -45,11 +45,11 @@
 3. Attribute (attribute_name, entity_name, relation_name, is_key_part)
 
 Связи один ко многим:
-Entity имеет Attribute (entity_name, attribute_name)
-Relation имеет attribute (relation_name, attribute_name)
+* Entity имеет Attribute (entity_name, attribute_name)
+* Relation имеет attribute (relation_name, attribute_name)
 
 Связь многое ко многим:
-Entity -> Relation (entity_name, relation_name)
+* Entity -> Relation (entity_name, relation_name)
 
 ## Task 3.1
 Сущности:
@@ -58,12 +58,12 @@ Entity -> Relation (entity_name, relation_name)
 3. Train (TrainNr, Length)
 
 Связь один ко многим:
-Station -> Train start (Name, TrainNr)
-Station -> Train end (Name, TrainNr)
-City -> Station lie in (Region, Name (station), Name (city))
+* Station -> Train start (Name, TrainNr)
+* Station -> Train end (Name, TrainNr)
+* City -> Station lie in (Region, Name (station), Name (city))
 
 Связь 1:1:N:
-Station -> Station -> Train connected (Name (1st station), Name (2nd station), TrainNr, Departure, Arrival) 
+* Station -> Station -> Train connected (Name (1st station), Name (2nd station), TrainNr, Departure, Arrival) 
 
 ## Task 3.2
 Сущности:
@@ -75,8 +75,8 @@ Station -> Station -> Train connected (Name (1st station), Name (2nd station), T
 6. Doctor (PersNr, Name, Area, Rank)
 
 Связь один ко многим:
-Room -> Patient admission (PatientNr, RoomNr, StatNr, from, to)
-Station -> Room has (StatNr, RoomNr, #Beds)
-Doctor -> Patient treats (PersNr, PatientNr)
-StationPersonell -> Station station (PersNr, StatNr)
+* Room -> Patient admission (PatientNr, RoomNr, StatNr, from, to)
+* Station -> Room has (StatNr, RoomNr, #Beds)
+* Doctor -> Patient treats (PersNr, PatientNr)
+* StationPersonell -> Station station (PersNr, StatNr)
 
