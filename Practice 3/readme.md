@@ -1,6 +1,6 @@
 ## Relation Model
 
-Foreign Key обозночается **так**
+Foreign Key обозночается *так*
 
 Candidate Key обозночается **так**
 
