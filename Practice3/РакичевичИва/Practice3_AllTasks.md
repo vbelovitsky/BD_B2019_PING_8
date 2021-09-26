@@ -54,11 +54,11 @@ Apartment: { *apart_id: int*; number: int }
 
 House: { *house_id: int*; number: int }
 
-Street: {*street_id: int*; name: string }
+Street: { *street_id: int*; name: string }
 
-City: {*city_id: int*; name: string }
+City: { *city_id: int*; name: string }
 
-Country: {*country_id: int*; name: string }
+Country: { *country_id: int*; name: string }
 
 
 * FK **key**
@@ -69,11 +69,11 @@ Apartment: { *apart_id: int*; number: int; **house_id: int** }
 
 House: { *house_id: int*; number: int; **street_id: int** }
 
-Street: {*street_id: int*; name: string; **city_id: int** }
+Street: { *street_id: int*; name: string; **city_id: int** }
 
-City: {*city_id: int*; name: string; **id_country** }
+City: { *city_id: int*; name: string; **id_country** }
 
-Country: {*country_id: int*; name: string }
+Country: { *country_id: int*; name: string }
 
 ## 2.3
 
@@ -88,7 +88,7 @@ Arbitator: { *arb_id: int* }
 
 Team: { *team_id: int*; name: string }
 
-Judging: {*jud_id: int* } 
+Judging: { *jud_id: int* } 
 
 
 * FK **key**
@@ -99,9 +99,28 @@ Arbitator: { *arb_id: int* }
 
 Team: { *team_id: int*; name: string }
 
-Judging: {*jud_id: int*; **arb_id: int; team1_id: int; team2_id: int** }
+Judging: { *jud_id: int*; **arb_id: int; team1_id: int; team2_id: int** }
 
 ## 2.4
+
+https://github.com/mikamurasaki2/BD_B2019_PING_8/blob/master/Practice2/Task2_3.png
+
+* PK *key*
+
+Entities:
+
+Woman: { *wom_id: int*; moth_id: int; daugh_id: int }
+
+Man: ( *man_id: int*; fath_id: int; son_id: int }
+
+
+* FK **key**
+
+Relations:
+
+Woman: { *wom_id: int*; moth_id: int; daugh_id: int;  **fath_id: int; son_id: int** }
+
+Man: ( *man_id: int*; fath_id: int; son_id: int; **moth_id: int; daugh_id: int** }
 
 # Задача 3
 
