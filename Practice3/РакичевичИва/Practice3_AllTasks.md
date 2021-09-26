@@ -25,7 +25,7 @@ Rent: { *rent_id: int*; dateReturn: datetime }
 Reader: { *read_id: int*; firstName: string; secondName: string; birthday: datetime; address: string }
 
 
-* Candidate **key**
+* FK **key**
 
 Relations:
 
@@ -61,7 +61,7 @@ City: { *city_id: int*; name: string }
 Country: { *country_id: int*; name: string }
 
 
-* Candidate **key**
+* FK **key**
 
 Relations:
 
@@ -89,7 +89,7 @@ Arbitator: { *arb_id: int* }
 Team: { *team_id: int*; name: string }
 
 
-* Candidate **key**
+* FK **key**
 
 Relations:
 
@@ -112,7 +112,7 @@ Woman: { *wom_id: int*; moth_id: int; daugh_id: int }
 Man: { *man_id: int*; fath_id: int; son_id: int }
 
 
-* Candidate **key**
+* FK **key**
 
 Relations:
 
@@ -137,7 +137,7 @@ City: {*city_Name: string; Region: string* }
 Train: {*TrainNr: int*; Length: int }
 
 
-* Candidate **key**
+* FK **key**
 
 Relations:
 
@@ -177,7 +177,7 @@ Room: { *RoomNr: int*; #beds: int}
 
 
 
-* Candidate **key**
+* FK **key**
 
 Relations:
 
