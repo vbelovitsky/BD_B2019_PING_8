@@ -147,9 +147,9 @@ City: {*city_Name: string; Region: string* }
 
 Train: {*TrainNr: int*; Length: int; **start_st: string; end_st: string; conn_id: int** }
 
-End: {*TrainNr_id: int*; end_st: string }
+End: {*TrainNr_id: int; end_st: string** }
 
-Start: {*TrainNr_id: int*; start_st: string }
+Start: {**TrainNr_id: int; start_st: string** }
 
 Connection: {*conn_id: int*; Depature: datetime; Arrival: datetime; **start_st: string; end_st: string** }
 
@@ -163,8 +163,38 @@ https://imgur.com/oFBM5pp
 
 Entities:
 
+StationPersonell: {*PersNr: int*; PersName: string }
+
+Station: { *StatNr: int*; name: string}
+
+Doctor: { *DoctorNr: int*; #Name: string; Qualification: string}
+
+Caregiver: { *PersNr: int*; #Name: string; Area: string; Rank: string}
+
+Patient: { *PatientNr: int*; Name: string; Disease: string}
+
+Room: { *ToomNr: int*; #beds: int}
+
 
 
 * FK **key**
 
 Relations:
+
+StationPersonell: {*PersNr: int*; PersName: string; **StatNr: int** }
+
+Station: { *StatNr: int*; name: string}
+
+Doctor: { *DoctorNr: int*; #Name: string; Qualification: string}
+
+Caregiver: { *PersNr: int*; #Name: string; Area: string; Rank: string}
+
+Patient: { *PatientNr: int*; Name: string; Disease: string; **DoctorNr: int; Admission_id: int**}
+
+Room: { *ToomNr: int*; #beds: int; **SatNr: int**}
+
+Admission: {*Admission_id: int*; RoonNr: int;  **PatientNr: int**; from: string; to: string}
+
+Trats: {**PatientNr: int; PersNr: int**}
+
+Works_for: {**PersNr: int; StatNr: int**}
