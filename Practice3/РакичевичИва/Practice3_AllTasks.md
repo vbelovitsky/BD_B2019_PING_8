@@ -195,6 +195,6 @@ Room: { *ToomNr: int*; #beds: int; **SatNr: int**}
 
 Admission: {*Admission_id: int*; RoonNr: int;  **PatientNr: int**; from: string; to: string}
 
-Trats: {**PatientNr: int; PersNr: int**}
+Treats: {**PatientNr: int; PersNr: int**}
 
 Works_for: {**PersNr: int; StatNr: int**}
