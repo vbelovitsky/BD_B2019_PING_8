@@ -153,7 +153,7 @@ Start: {**TrainNr_id: int; start_st: string** }
 
 Connection: {*conn_id: int*; Depature: datetime; Arrival: datetime; **start_st: string; end_st: string** }
 
-Lie_in: {*st_id: int*; Region: string; Name: string }
+Lie_in: {**st_Name: string; Region: string; Name: string**}
 
 ## 3.2
 
