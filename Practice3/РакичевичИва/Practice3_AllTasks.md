@@ -9,7 +9,7 @@
 https://github.com/mikamurasaki2/BD_B2019_PING_8/blob/master/Practice2/Task2_1.png
 
 * PK *key*
-* Entities:
+Entities:
 
 Categories: { *categ_id: int*; name: string }
 
@@ -25,7 +25,7 @@ Reader: { *read_id: int*; firstName: string; secondName: string; birthday: datet
 
 
 * FK **key**
-* Relations:
+Relations:
 
 Categories: { *categ_id: int*; name: string; **parent_id: int** }
 
@@ -44,21 +44,29 @@ Reader: { *read_id: int*; firstName: string; secondName: string; birthday: datet
 https://github.com/mikamurasaki2/BD_B2019_PING_8/blob/master/Practice2/Task2_1.png
 
 * PK *key*
-* Entities:
+Entities:
 
 Apartment: { *apart_id: int*; number: int }
+
 House: { *house_id: int*; number: int }
+
 Street: {*street_id: int*; name: string }
+
 City: {*city_id: int*; name: string }
+
 Country: {*country_id: int*; name: string }
 
 * FK **key**
-* Relations:
+Relations:
 
 Apartment: { *apart_id: int*; number: int; **house_id: int** }
+
 House: { *house_id: int*; number: int; **street_id: int** }
+
 Street: {*street_id: int*; name: string; **city_id: int** }
+
 City: {*city_id: int*; name: string; **id_country** }
+
 Country: {*country_id: int*; name: string }
 
 ## 2.3
