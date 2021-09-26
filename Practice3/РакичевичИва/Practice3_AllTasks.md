@@ -88,8 +88,7 @@ Arbitator: { *arb_id: int* }
 
 Team: { *team_id: int*; name: string }
 
-Judging: { *jud_id: int* } 
-
+Judging: { *jud_id: int* }
 
 * FK **key**
 
@@ -111,7 +110,7 @@ Entities:
 
 Woman: { *wom_id: int*; moth_id: int; daugh_id: int }
 
-Man: ( *man_id: int*; fath_id: int; son_id: int }
+Man: { *man_id: int*; fath_id: int; son_id: int }
 
 
 * FK **key**
@@ -120,7 +119,34 @@ Relations:
 
 Woman: { *wom_id: int*; moth_id: int; daugh_id: int;  **fath_id: int; son_id: int** }
 
-Man: ( *man_id: int*; fath_id: int; son_id: int; **moth_id: int; daugh_id: int** }
+Man: { *man_id: int*; fath_id: int; son_id: int; **moth_id: int; daugh_id: int** }
 
 # Задача 3
 
+## 3.1
+
+* PK *key*
+
+Entities:
+
+Station: {*st_Name: string*; #Tracks: int }
+
+City: {*city_Name: string; Region: string* }
+
+Train: {*TrainNr: int*; Length: int }
+
+Connection: {*conn_id: int*; Depature: datetime; Arrival: datetime }
+
+* FK **key**
+
+Relations:
+
+Station: {*st_Name: string*; #Tracks: int; **city_Name: string; Region: string** }
+
+City: {*city_Name: string; Region: string* }
+
+Train: {*TrainNr: int*; Length: int; **start_st: string; end_st: string; conn_id: int** }
+
+Connection: {*conn_id: int*; Depature: datetime; Arrival: datetime; **start_st: string; end_st: string** }
+
+## 3.2
