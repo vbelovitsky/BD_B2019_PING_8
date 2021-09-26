@@ -147,7 +147,7 @@ City: {*city_Name: string; Region: string* }
 
 Train: {*TrainNr: int*; Length: int; **start_st: string; end_st: string; conn_id: int** }
 
-End: {*TrainNr_id: int; end_st: string** }
+End: {**TrainNr_id: int; end_st: string** }
 
 Start: {**TrainNr_id: int; start_st: string** }
 
@@ -165,7 +165,7 @@ Entities:
 
 StationPersonell: {*PersNr: int*; PersName: string }
 
-Station: { *StatNr: int*; name: string}
+Station: { *StatNr: int*; Name: string}
 
 Doctor: { *DoctorNr: int*; #Name: string; Qualification: string}
 
@@ -173,7 +173,7 @@ Caregiver: { *PersNr: int*; #Name: string; Area: string; Rank: string}
 
 Patient: { *PatientNr: int*; Name: string; Disease: string}
 
-Room: { *ToomNr: int*; #beds: int}
+Room: { *RoomNr: int*; #beds: int}
 
 
 
@@ -183,7 +183,7 @@ Relations:
 
 StationPersonell: {*PersNr: int*; PersName: string; **StatNr: int** }
 
-Station: { *StatNr: int*; name: string}
+Station: { *StatNr: int*; Name: string}
 
 Doctor: { *DoctorNr: int*; #Name: string; Qualification: string}
 
