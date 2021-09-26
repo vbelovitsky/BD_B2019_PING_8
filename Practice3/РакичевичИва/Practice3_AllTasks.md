@@ -88,7 +88,6 @@ Arbitator: { *arb_id: int* }
 
 Team: { *team_id: int*; name: string }
 
-Judging: { *jud_id: int* }
 
 * FK **key**
 
@@ -125,6 +124,8 @@ Man: { *man_id: int*; fath_id: int; son_id: int; **moth_id: int; daugh_id: int**
 
 ## 3.1
 
+https://imgur.com/w2iDI1o
+
 * PK *key*
 
 Entities:
@@ -135,7 +136,6 @@ City: {*city_Name: string; Region: string* }
 
 Train: {*TrainNr: int*; Length: int }
 
-Connection: {*conn_id: int*; Depature: datetime; Arrival: datetime }
 
 * FK **key**
 
@@ -147,6 +147,24 @@ City: {*city_Name: string; Region: string* }
 
 Train: {*TrainNr: int*; Length: int; **start_st: string; end_st: string; conn_id: int** }
 
+End: {*TrainNr_id: int*; end_st: string }
+
+Start: {*TrainNr_id: int*; start_st: string }
+
 Connection: {*conn_id: int*; Depature: datetime; Arrival: datetime; **start_st: string; end_st: string** }
 
+Lie_in: {*st_id: int*; Region: string; Name: string }
+
 ## 3.2
+
+https://imgur.com/oFBM5pp
+
+* PK *key*
+
+Entities:
+
+
+
+* FK **key**
+
+Relations:
