@@ -45,6 +45,7 @@ Reader: { *read_id: int*; firstName: string; secondName: string; birthday: datet
 
 https://github.com/mikamurasaki2/BD_B2019_PING_8/blob/master/Practice2/Task2_1.png
 
+
 * PK *key*
 
 Entities:
@@ -58,6 +59,7 @@ Street: {*street_id: int*; name: string }
 City: {*city_id: int*; name: string }
 
 Country: {*country_id: int*; name: string }
+
 
 * FK **key**
 
@@ -74,6 +76,30 @@ City: {*city_id: int*; name: string; **id_country** }
 Country: {*country_id: int*; name: string }
 
 ## 2.3
+
+https://github.com/mikamurasaki2/BD_B2019_PING_8/blob/master/Practice2/Task2_2.png
+
+
+* PK *key*
+
+Entities:
+
+Arbitator: { *arb_id: int* }
+
+Team: { *team_id: int*; name: string }
+
+Judging: {*jud_id: int* } 
+
+
+* FK **key**
+
+Relations:
+
+Arbitator: { *arb_id: int* }
+
+Team: { *team_id: int*; name: string }
+
+Judging: {*jud_id: int*; **arb_id: int; team1_id: int; team2_id: int** }
 
 ## 2.4
 
