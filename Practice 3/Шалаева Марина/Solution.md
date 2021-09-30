@@ -48,7 +48,7 @@
 
 Отношения:
 
-* Игра: {***название команды-хозяина, название команды гостя, имя арбитра***}
+* Игра: {***название команды-хозяина, название команды-гостя, имя арбитра***}
 
 ### Реляционная модель схемы 2.3
 
@@ -75,10 +75,10 @@
 
 Сущности:
 
-* StationPersonell {***PersNr***, #Name}
-* Caregiver {***PersNr***, Qualification, #Name}
-* Doctor {***PersNr***, Area, Rank, #Name}
-* Patient {***PatientNr***, PersNr, Name, Disease, ***RoomNr***, From, To}
+* StationPersonell {***PersNr***, #Name, ***StatNr***}
+* Caregiver {***PersNr***, Qualification, #Name, ***StatNr***}
+* Doctor {***PersNr***, Area, Rank, #Name, ***StatNr***}
+* Patient {***PatientNr***, PersNr, Name, Disease, ***RoomNr***, From, To, ***StatNr***}
 * Room {***RoomNr, StatNr***, #Beds}
 * Station {***StatNr***, Name}
 
