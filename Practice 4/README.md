@@ -25,3 +25,8 @@ a) SELECT LastName FROM Reader WHERE CONTAINS(Address, 'Moscow')
     WHERE FromStation = 'Москва'
     AND ToStation = 'Тверь'
  
+б) SELECT с.TrainNr FROM Сonnection с
+    JOIN station s1 ON s1.Name = connection.FromStation JOIN station s2 ON s2.Name = connection.ToStation
+    WHERE (Arrival - Departure) = 0 AND s1.CityName = 'Moscow' AND s2.CityName = 'Petersburg';
+    
+в) Нужно было бы делать перебор и смотреть чтобы FromStation у одной Connection совпадал с ToStation другой.
