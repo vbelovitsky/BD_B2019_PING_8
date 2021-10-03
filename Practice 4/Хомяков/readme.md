@@ -1,15 +1,19 @@
 ## SQL
 - 1а
-```SELECT
+
+```sql
+SELECT
     LastName
 FROM
     Reader
 WHERE
-    CONTAINS([Address], 'Москва');```
+    CONTAINS([Address], 'Москва');
+```
 
 
 - 1б
-```SELECT
+```sql
+SELECT
     bk.Title,
     bk.Author
 FROM
@@ -23,7 +27,8 @@ WHERE
 
 
 - 1в
-```SELECT
+```sql
+SELECT
     DISTINCT bc.ISBN
 FROM
     BookCat AS bc
@@ -39,7 +44,8 @@ WHERE
 
 
 - 1г
-```SELECT
+```sql
+SELECT
     DISTINCT rd.FirstName,
     rd.LastName
 FROM
@@ -50,7 +56,8 @@ WHERE
 
 
 - 1д
-```SELECT
+```sql
+SELECT
     DISTINCT rd.FirstName,
     rd.LastName
 FROM
@@ -76,7 +83,8 @@ WHERE
 
 
 - 2а
-```SELECT
+```sql
+SELECT
     *
 FROM
     Connection AS c1
@@ -99,7 +107,8 @@ WHERE
 
 
 - 2б
-```SELECT
+```sql
+SELECT
     *
 FROM
     Connection AS c1
