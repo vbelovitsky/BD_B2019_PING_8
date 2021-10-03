@@ -1,29 +1,26 @@
 ## SQL
-
 ### Задача 1.
-
-- а)
-
+-- a)
 ```
-SELECT LAST_NAME
-
-FROM READER
-
-WHERE ADDRESS = 'Москва';
+SELECT
+    LastName
+FROM
+    Reader
+WHERE
+    Address = 'Москва';
+``` -- б)
 ```
-
-- б)
-
-```
-
-SELECT TITLE, AUTHER
-
-FROM BOOK;
-
-```
-
-- в)
-
-- г)
-
-- д)
+SELECT
+    Book.Title,
+    Book.Author
+FROM
+    Book
+    INNER JOIN [Copy] AS cpy ON Book.ISBN = cpy.ISBN
+    INNER JOIN Borrowing ON cop.CopyNumber = Borrowing.CopyNumber
+    INNER JOIN Reader ON Borrowing.ReaderNr = Reader.ID
+WHERE
+    Reader.FirstName = 'Иван'
+    AND Reader.LastName = 'Иванов'
+``` -- в)
+-- г)
+-- д)
