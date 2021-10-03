@@ -1,15 +1,14 @@
-## SQL
-- 1а
-```SELECT
+-- 1а
+SELECT
     LastName
 FROM
     Reader
 WHERE
-    CONTAINS([Address], 'Москва');```
+    CONTAINS([Address], 'Москва');
 
 
-- 1б
-```SELECT
+-- 1б
+SELECT
     bk.Title,
     bk.Author
 FROM
@@ -19,11 +18,11 @@ FROM
     INNER JOIN Reader AS rd ON br.ReaderNr = rd.ID
 WHERE
     rd.FirstName = 'Иван'
-    AND rd.LastName = 'Иванов';```
+    AND rd.LastName = 'Иванов';
 
 
-- 1в
-```SELECT
+-- 1в
+SELECT
     DISTINCT bc.ISBN
 FROM
     BookCat AS bc
@@ -35,22 +34,22 @@ SELECT
 FROM
     BookCat AS bc
 WHERE
-    bc.CategoryName = 'Путешествия';```
+    bc.CategoryName = 'Путешествия';
 
 
-- 1г
-```SELECT
+-- 1г
+SELECT
     DISTINCT rd.FirstName,
     rd.LastName
 FROM
     Reader AS rd
     INNER JOIN Borrowing AS br ON br.ReaderNr = rd.ID
 WHERE
-    br.ReturnDate < GETDATE();```
+    br.ReturnDate < GETDATE();
 
 
-- 1д
-```SELECT
+-- 1д
+SELECT
     DISTINCT rd.FirstName,
     rd.LastName
 FROM
@@ -72,11 +71,11 @@ WHERE
     AND (
         rd.FirstName <> 'Иван'
         OR rd.FirstName <> 'Иванов'
-    );```
+    );
 
 
-- 2а
-```SELECT
+-- 2а
+SELECT
     *
 FROM
     Connection AS c1
@@ -84,9 +83,9 @@ FROM
     INNER JOIN station AS s2 ON s2.Name = с.ToStation
 WHERE
     s1.CityName = 'Москва'
-    AND s2.CityName = 'Тверь' - если есть записи Москва->Спб, Спб->Тверь то и Москва->Тверь
-    - и тогда время отправки из Москва->Спб = времени отправки Москва->Тверь
-    - иначе рейс прямой
+    AND s2.CityName = 'Тверь' -- если есть записи Москва->Спб, Спб->Тверь то и Москва->Тверь
+    -- и тогда время отправки из Москва->Спб = времени отправки Москва->Тверь
+    -- иначе рейс прямой
     AND NOT EXISTS (
         SELECT
             1
@@ -95,11 +94,11 @@ WHERE
         WHERE
             c1.Departure = c2.Departure
             AND c1.TrainNr = c2.TrainNr
-    );```
+    );
 
 
-- 2б
-```SELECT
+-- 2б
+SELECT
     *
 FROM
     Connection AS c1
@@ -117,4 +116,4 @@ WHERE
         WHERE
             c1.Departure = c2.Departure
             AND c1.TrainNr = c2.TrainNr
-    );```
+    );
