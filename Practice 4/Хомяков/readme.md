@@ -1,5 +1,7 @@
 ## SQL
-- 1а
+
+### Задание 1
+- а
 
 ```sql
 SELECT
@@ -11,7 +13,7 @@ WHERE
 ```
 
 
-- 1б
+- б
 ```sql
 SELECT
     bk.Title,
@@ -27,7 +29,7 @@ WHERE
  ```
 
 
-- 1в
+- в
 ```sql
 SELECT
     DISTINCT bc.ISBN
@@ -45,7 +47,7 @@ WHERE
 ```
 
 
-- 1г
+- г
 ```sql
 SELECT
     DISTINCT rd.FirstName,
@@ -58,7 +60,7 @@ WHERE
 ```
 
 
-- 1д
+- д
 ```sql
 SELECT
     DISTINCT rd.FirstName,
@@ -85,8 +87,9 @@ WHERE
     );
 ```
 
+### Задание 2
 
-- 2а
+- а
 ```sql
 SELECT
     *
@@ -111,7 +114,7 @@ WHERE
 ```
 
 
-- 2б
+- б
 ```sql
 SELECT
     *
@@ -133,3 +136,7 @@ WHERE
             AND c1.TrainNr = c2.TrainNr
     );
 ```
+
+### Задание 3
+
+
