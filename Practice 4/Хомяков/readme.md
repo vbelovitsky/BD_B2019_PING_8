@@ -23,7 +23,8 @@ FROM
     INNER JOIN Reader AS rd ON br.ReaderNr = rd.ID
 WHERE
     rd.FirstName = 'Иван'
-    AND rd.LastName = 'Иванов';```
+    AND rd.LastName = 'Иванов';
+ ```
 
 
 - 1в
@@ -40,7 +41,8 @@ SELECT
 FROM
     BookCat AS bc
 WHERE
-    bc.CategoryName = 'Путешествия';```
+    bc.CategoryName = 'Путешествия';
+```
 
 
 - 1г
@@ -52,7 +54,8 @@ FROM
     Reader AS rd
     INNER JOIN Borrowing AS br ON br.ReaderNr = rd.ID
 WHERE
-    br.ReturnDate < GETDATE();```
+    br.ReturnDate < GETDATE();
+```
 
 
 - 1д
@@ -79,7 +82,8 @@ WHERE
     AND (
         rd.FirstName <> 'Иван'
         OR rd.FirstName <> 'Иванов'
-    );```
+    );
+```
 
 
 - 2а
@@ -103,7 +107,8 @@ WHERE
         WHERE
             c1.Departure = c2.Departure
             AND c1.TrainNr = c2.TrainNr
-    );```
+    );
+```
 
 
 - 2б
@@ -126,4 +131,5 @@ WHERE
         WHERE
             c1.Departure = c2.Departure
             AND c1.TrainNr = c2.TrainNr
-    );```
+    );
+```
