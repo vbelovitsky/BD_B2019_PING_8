@@ -8,45 +8,80 @@
 
 ## Задача 2
 
-
 ### Реляционная модель схемы 1
 
-Модель до объединения (merge) отношений с одинаковым ключом:
+Сущности:
 
-![задача1](https://sun9-65.userapi.com/impg/uYyzhUV-SUOYNCIKYY_231aXXNjoXst4a0C6Gg/0dS3aLbc77o.jpg?size=1199x507&quality=96&sign=2f0ef0e3d39d562dabc6b3a7a71ca15e&type=album "Задача 2.1")
+* Книга: {***ISBN***, название издателя, год, название, автор, количество страниц}
+* Издатель: {***название издателя***, адрес}
+* Категория: {***название категории***, название родительской категории}
+* Копия книги: {***номер, ISBN***, положение на полке}
+* Читатель: {***номер читателя***, имя, фамилия, день рождения, адрес}
 
-Модель после merge'а (финальный вариант):
+Отношения:
 
-![задача1](https://sun9-17.userapi.com/impg/uryW5NpYtDJ_dbPH1woatr5UGlTgYhi7YNkWSw/i282vFHe3-w.jpg?size=1289x378&quality=96&sign=ce6372853a798b65362e24dc1be921a1&type=album "Задача 2.1")
+* Взятие копии книги: {***номер читателя, ISBN, номер экземпляра книги***, дата возврата}
+* Категория книги: {***ISBN***, название категории}
 
 ### Реляционная модель схемы 2.1
 
-![задача2.1](https://sun9-31.userapi.com/impg/bXezThY6ie5gAwOVqIQmManPO-a62U0YGxJvPw/C219iQGYTD0.jpg?size=834x239&quality=96&sign=4cb964eb6db1bddfa5cc4cc88fee8c1d&type=album "Задача 2.2.1")
+Сущности, если они слабые (наилучший вариант):
+* Квартира: {***номер квартиры, номер дома, название улицы, название города, название страны***}
+* Дом: {***номер дома, название улицы, название города, название страны***}
+* Улица: {***название улицы, название города, название страны***}
+* Город: {***название города, название страны***}
+* Страна: {***название страны***}
+
+Сущности, если они сильные (нежелательный для использования вариант, но в целом может существовать):
+* Квартира: {***номер квартиры, номер дома***}
+* Дом: {***номер дома, название улицы***}
+* Улица: {***название улицы, название города***}
+* Город: {***название города, название страны***}
+* Страна: {***название страны***}
 
 ### Реляционная модель схемы 2.2
 
-Модель до объединения (merge) отношений с одинаковым ключом:
+Сущности:
 
-![задача2.2](https://sun9-23.userapi.com/impg/ZHDutCW4MhTCuxg0EUFhbbEjAtz9rydwHqki1g/zqSOcd0yhAA.jpg?size=708x253&quality=96&sign=e56cd7343220983361c6c7fb54dd4b8e&type=album "Задача 2.2.2")
+* Команда: {***название команды***}
+* Арбитр: {***имя арбитра***}
 
-Модель после merge'а (финальный вариант):
+Отношения:
 
-![задача2.2](https://sun9-38.userapi.com/impg/gB40m4BlQjGI23fn8EAT2KJCk6s3k3FT0vKMXQ/JSvNpG05pj8.jpg?size=564x239&quality=96&sign=d2060fba8d510244ce1dd31c3106a11c&type=album "Задача 2.2.2")
+* Игра: {***название команды-хозяина, название команды-гостя, имя арбитра***}
 
 ### Реляционная модель схемы 2.3
 
-![задача2.3](https://sun9-11.userapi.com/impg/LTbxAEUMjKeQs4COQ5MeYCt8ToDhbZ2s7HgAQg/b8hz7YXm14I.jpg?size=561x114&quality=96&sign=6346fd6225390f32a346fca4870e669b&type=album "Задача 2.2.3")
+Сущности:
 
-### Реляционная модель схемы 3
-
-![задача3](https://sun9-64.userapi.com/impg/qKzIDKZrV9v202XGYsKtQhhQQXlg6TRB03riWQ/lClMvxr9row.jpg?size=1211x272&quality=96&sign=fd0526a90b0610807c42de8af64c25c5&type=album "Задача 2.3")
+* Мужчина {***id***, id отца, id матери}
+* Женщина {***id***, id отца, id матери}
 
 ## Задача 3
 
 ### Реляционная модель схемы 3.1
 
-![задача3](https://sun9-60.userapi.com/impg/o9plYNv12fM8R2QWoFlGTEk6N8KuNbZvN5UVmA/UXRjPAWGR9U.jpg?size=1136x467&quality=96&sign=cb9bd3f6863cd8e4b85f7a290757380a&type=album "Задача 3.1")
+Сущности:
+
+* Train: {***TrainNr***, StartStationName, EndStationName, Length}
+* Station {***Name, CityName, RegionOfCity***, #Tracks}
+* City {***Name, Region***}
+
+Отношения:
+
+* Connected {***FromStation, TrainNr***, ToStation, Arrival, Deprture}
 
 ### Реляционная модель схемы 3.2
 
-![задача3](https://sun9-52.userapi.com/impg/AC4bzi_VYfBPbPkqrIyA2cWM5UhvtIUVGEpltw/mbCVVit9bRA.jpg?size=1305x349&quality=96&sign=b0fa9fee65224b750de0175903e914bf&type=album "Задача 3.2")
+Сущности:
+
+* StationPersonell {***PersNr***, #Name, ***StatNr***}
+* Caregiver {***PersNr***, Qualification, #Name, ***StatNr***}
+* Doctor {***PersNr***, Area, Rank, #Name, ***StatNr***}
+* Patient {***PatientNr***, PersNr, Name, Disease, ***RoomNr***, From, To, ***StatNr***}
+* Room {***RoomNr, StatNr***, #Beds}
+* Station {***StatNr***, Name}
+
+Отношения:
+
+* Treats {***PatientNr***, PersNr}

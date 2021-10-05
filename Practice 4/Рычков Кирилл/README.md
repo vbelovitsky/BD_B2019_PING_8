@@ -10,6 +10,7 @@
 
 ```sql
 б) SELECT Author, Title FROM Book 
+JOIN Borrowing ON Borrowing.ISBN = Book.ISBN
 JOIN Reader ON Borrowing.ReaderNr == Reader.ID
 WHERE Reader.LastName == "Ivanov" AND Reader.FirstName == "Ivan";
 ```
@@ -46,3 +47,4 @@ JOIN station S2 ON S2.Name = connection.ToStation
 WHERE Arrival = Departure AND S1.CityName = 'Moscow' AND S2.CityName = 'St. Petersburg';
 ```
 
+в)
