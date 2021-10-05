@@ -14,7 +14,9 @@ b)
 
 ``` sql
 
-select bk.Author, bk.Title from Reader r, Borrowing b, Book bk where r.FirstName = 'Ivan' and r.LastName = 'Ivanov' and r.ID = b.ReaderNr and bk.ISBN = b.ISBN and b.ReturnDate is not null
+select bk.Author, bk.Title from Reader r, Borrowing b, Book bk 
+where r.FirstName = 'Ivan' and r.LastName = 'Ivanov' and r.ID = b.ReaderNr 
+and bk.ISBN = b.ISBN and b.ReturnDate is not null
 
 ```
 
@@ -22,7 +24,9 @@ c)
 
 ``` sql
 
-select ISBN from (select ISBN from BookCat where CategoryName = 'Горы') minus (select ISBN from BookCat where CategoryName = 'Путешествия')
+select ISBN from (select ISBN from BookCat where CategoryName = 'Горы') 
+minus 
+(select ISBN from BookCat where CategoryName = 'Путешествия')
 
 ```
 
@@ -30,14 +34,20 @@ d)
 
 ``` sql
 
-select r.LastName, r.FirstName from Reader r, (select distinct ReaderNr from Bororowing where ReturnDate is not null) q where r.ID = q.ReaderNr
+select r.LastName, r.FirstName from Reader r, 
+(select distinct ReaderNr from Bororowing where ReturnDate is not null) q 
+where r.ID = q.ReaderNr
 
 ```
 e)
 
 ``` sql
 
-select r.LastName, r.FirstName from Reader r, (select distinct ReaderNr from Borrowing b, (select ISBN from Borowing b, (select ID from Reader where FirstName = 'Ivan' and r.LastName = 'Ivanov') q where b.ReaderNr = q.ID) q where q.ISBN = b.ISBN) allr where r.ID = allr.ID and r.LastName != 'Ivanov' and r.FirstName != 'Ivan'
+select r.LastName, r.FirstName from Reader r, 
+(select distinct ReaderNr from Borrowing b, 
+(select ISBN from Borowing b, (select ID from Reader where FirstName = 'Ivan' and r.LastName = 'Ivanov') q 
+where b.ReaderNr = q.ID) q where q.ISBN = b.ISBN) allr 
+where r.ID = allr.ID and r.LastName != 'Ivanov' and r.FirstName != 'Ivan'
 
 ```
 
@@ -47,16 +57,23 @@ a)
 
 ``` sql
 
-select * from Connection c where not exists (select * from Connection o where c.TrainNr = o.TrainNr and c.FromStation == o.FromStation and c.FromStation = 'Moscow' and c.ToStation = 'Tver' and c.ToStation != o.ToStation)
+select * from Connection c where not exists 
+(select * from Connection o where c.TrainNr = o.TrainNr and 
+c.FromStation == o.FromStation and c.FromStation = 'Moscow' and 
+c.ToStation = 'Tver' and c.ToStation != o.ToStation)
 
 ```
 
 b) 
 
 ``` sql
-(select * from Connection c where c.FromStation = 'Moscow' and c.ToStation = 'Sankt-Petersburg' and c.Depature.Day() = c.Arrival.Day())
+(select * from Connection c where c.FromStation = 'Moscow' and 
+c.ToStation = 'Sankt-Petersburg' and c.Depature.Day() = c.Arrival.Day())
 minus
-(select * from Connection c where c.Depature.Day() = c.Arrival.Day() and  not exists (select * from Connection o where c.TrainNr = o.TrainNr and c.FromStation == o.FromStation and c.FromStation = 'Moscow' and c.ToStation = 'Sankt-Petersburg' and c.ToStation != o.ToStation))
+(select * from Connection c where c.Depature.Day() = c.Arrival.Day() and  
+not exists (select * from Connection o where c.TrainNr = o.TrainNr 
+and c.FromStation == o.FromStation and c.FromStation = 'Moscow' 
+and c.ToStation = 'Sankt-Petersburg' and c.ToStation != o.ToStation))
 
 ```
 c) 
