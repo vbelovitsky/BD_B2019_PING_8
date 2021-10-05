@@ -10,72 +10,74 @@
 ## 1
 
 ### Entities:
-### 1. Book {[ISBN: srting, name: string, author: string, numberOfPages: integer, year: integer, publisherId: integer]} 
-### 2. Publisher {[Id: integer, name: string, address: string]}
-### 3. Category {[Id: integer, name: string, parrentId: integer, nullable]}
-### 4. BookCopy {[ISBN: string, Id: integer, shelfPosition: integer]}
-### 5. Reader {[Id: integer, name: string, surname: string, address: string, dateOfBirth: dateTime]}
+### 1. Book {[**ISBN: srting**, name: string, author: string, numberOfPages: integer, year: integer, publisherId: integer]} 
+### 2. Publisher {[**Id: integer**, name: string, address: string]}
+### 3. Category {[**name: string**, parrentName: string, nullable]}
+### 4. BookCopy {[**ISBN: string**, **Id: integer**, shelfPosition: integer]}
+### 5. Reader {[**Id: integer**, name: string, surname: string, address: string, dateOfBirth: dateTime]}
 ### 6. Rent {[Id: integer, dateOfReturn: dateTime]}
 
 ### Relations:
-### 1. rents {[rentId: integer, readerId: integer]}
-### 2. includes {[rentId: integer, bookCopyId: integer]}
-### 3. belongsToCategory {[ISBN: string, categoryId: integer]}
+### 1. rents {[**rentId: integer**, **readerId: integer**]}
+### 2. includes {[**rentId: integer**, **ISBN: string**, **bookCopyId: integer**]}
+### 3. belongsToCategory {[**ISBN: string**, **categoryName: string**]}
 
 ## 2.1
 
 ### Entities:
-### 1. Apartment {[Id: integer, houseId: integer]}
-### 2. House {[Id: integer, streerId: integer]}
-### 3. Street {[Id: integer, cityId: integer]}
-### 4. City {[Id: integer, countryId: integer]}
-### 5. Country {[Id: integer]}
+### 1. Apartment {[**apartmentNumber: integer** , **houseNumber: int** , **streetName: string**, **cityName: string**, **countryName: string**]]}
+### 2. House {[**houseNumber: integer** , **streetName: string**, **cityName: string**, **countryName: string**]}
+### 3. Street {[**streetName: string**, **cityName: string**, **countryName: string**]}
+### 4. City {[**cityName: string**, **countryName: string**]}
+### 5. Country {[**counrtyName: string**]}
 
 ## 2.2
 
 ### Entities:
-### 1. Referee {[Id: integer]}
-### 2. Team {[Id: integer]}
-### 3. Game {[Id: integer, homeTeamId: integer, guestTeamId: integer, refereeId: integer]}
+### 1. Referee {[**Id: integer**]}
+### 2. Team {[**Id: integer**]}
+
+### Relations:
+### 1. Game {[**homeTeamId: integer**, **guestTeamId: integer**, **refereeId: integer**]}
 
 ## 2.3
 
 ### Entities:
-### 1. Male {[Id: integer, fatherId: integer, motherId: integer]}
-### 2. Female {[Id: integer, fatherId: integer, motherId: integer]}
+### 1. Male {[**Id: integer**, fatherId: integer, motherId: integer]}
+### 2. Female {[**Id: integer**, fatherId: integer, motherId: integer]}
 
 ## 3
 
 ### Entites:
-### 1. Entity {[Id: integer, name: string]}
-### 2. Attribute of Entity {[Id: integer, name: string, isPartOfKey: boolean, entityId: integer]}
-### 3. Relation {[Id: integer, name: string]}
-### 4. Attribute of Relation {[Id: integer, name: string, relationId: integer]}
+### 1. Entity {[**Id: integer**, name: string]}
+### 2. Attribute of Entity {[**Id: integer**, **entityId: integer**, name: string, isPartOfKey: boolean]}
+### 3. Relation {[**Id: integer**, name: string]}
+### 4. Attribute of Relation {[**Id: integer**, **relationId: integer**, name: string]}
 
 ### Relations:
-### 1. participates {[Id: integer, entityId: integer, relationId: integer]}
+### 1. participates {[**Id: integer**, **entityId: integer**, **relationId: integer**]}
 
 ## Реляционные схемы на основе представленных ER-диаграмм
 
 ## 1
 
 ### Entities:
-### 1. Station {[name: string, #Tracks: integer, cityRegion: string, cityName: string]}
-### 2. Train {[trainNr: integer, length: integer, startStationName: string, endStationName: string]}
-### 3. City {[region: string, name: string ]}
+### 1. Station {[**Name: string**, **cityRegion: string**, **cityName: string**, #Tracks: integer]}
+### 2. Train {[**TrainNr: integer**, Length: integer, startStationName: string, endStationName: string]}
+### 3. City {[**Region: string**, **Name: string**]}
 
 ### Relations:
-### 1. Connected {[trainNr: integer, firstStationName: string, secondStationName: string, departure: dateTime, arrival: dateTime]}
+### 1. Connected {[**TrainNr: integer**, **startStationName: string**, endStationName: string, Departure: dateTime, Arrival: dateTime]}
 
 ## 2
 
 ### Entities:
-### 1. Station {[StatNr: integer, name: string]}
-### 2. Room {[RoomNr: integer, #Beds: integer, StatNr: integer]}
-### 3. Patient {[PatientNr: integer, name: string, disease: string, doctorId: integer]}
-### 4. StationPersonell {[PersNr: integer, #name: string, StatNr: integer]} 
-### 5. Caregiver {[PersNr: integer, qualification: string, StatNr: integer]}
-### 6. Doctor {[PersNr: integer, area: string, rank: string], StatNr: integer}
+### 1. Station {[**StatNr: integer**, Name: string]}
+### 2. Room {[**RoomNr: integer**, **StatNr: integer**, #Beds: integer]}
+### 3. Patient {[**PatientNr: integer**, Name: string, Disease: string, DoctorNr: integer]}
+### 4. StationPersonell {[**PersNr: integer**, StatNr: integer, #Name: string]} 
+### 5. Caregiver {[**PersNr: integer**, Qualification: string]}
+### 6. Doctor {[**PersNr: integer**, Area: string, Rank: string]}
 
 ### Relations:
-### 1. Admissions {[from: dateTime, to: dateTime, PatientNr: integer, RoomNr: integer]}
+### 1. Admissions {[**PatientNr: integer**, **RoomNr: integer**, from: dateTime, to: dateTime]}
