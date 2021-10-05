@@ -47,3 +47,4 @@ JOIN station S2 ON S2.Name = connection.ToStation
 WHERE Arrival = Departure AND S1.CityName = 'Moscow' AND S2.CityName = 'St. Petersburg';
 ```
 
+в)
