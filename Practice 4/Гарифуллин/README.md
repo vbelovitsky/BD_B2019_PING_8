@@ -49,3 +49,17 @@ reader.last_name != 'Иванов';
 ```
 
 ## Задача 2
+a)
+```sql
+SELECT DISTINCT train_nr FROM connection AS c
+INNER JOIN Station a ON a.name = c.start_station_name
+INNER JOIN Station b ON b.name = c.end_station_name
+WHERE a.city_name = 'Москва' AND b.city_name = 'Тверь'
+```
+б)
+```sql
+SELECT DISTINCT train_nr FROM connection AS c
+INNER JOIN Station a ON a.name = c.start_station_name
+INNER JOIN Station b ON b.name = c.end_station_name
+WHERE a.city_name = 'Москва' AND b.city_name = 'Санкт-Петербург' AND DAY(c.departure) = DAY(c.arrival)
+```
