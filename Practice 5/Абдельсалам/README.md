@@ -46,6 +46,16 @@ LIMIT 1;
 ```
 
 - Какие читатели забронировали все книги (не копии), написанные "Марком Твеном"?
+```sql
+SELECT number, first_name, last_name FROM readers r
+JOIN bookings bk ON r.number = bk.reader_number
+JOIN books b ON b.ISBN = bk.ISBN
+WHERE b.Author = 'Марк Твен'
+GROUP BY number HAVING COUNT(*) = (
+    SELECT COUNT(*) FROM books b
+    WHERE b.Author = 'Марк Твен'
+);
+```
 
 - Какие книги имеют более одной копии?
 ```sql
