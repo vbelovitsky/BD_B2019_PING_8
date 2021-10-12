@@ -46,10 +46,6 @@ LIMIT 1;
 ```
 
 - Какие читатели забронировали все книги (не копии), написанные "Марком Твеном"?
-```sql
-SELECT ID, LastName, FirstName FROM Reader
-JOIN Borrowing, Book ON Borrowing.ReaderNr = Reader.ID AND 
-```
 
 - Какие книги имеют более одной копии?
 ```sql
