@@ -149,6 +149,7 @@ WHERE NOT EXISTS (
   SELECT * FROM Lecture lec WHERE lec.ProfNr = p.ProfNr )); 
 ```
 Возвращает номер студента, имя, сумму кредитов у профессоров. А если лекций у профессора нет, то кредитов - ноль. 
+
 3.
 ```sql
 SELECT s.Name, p.Note
