@@ -1,71 +1,106 @@
 # Задание 5
 
-## Задача 1
+## 1
 
-### 1. Показать все названия книг вместе с именами издателей.
+### Показать все названия книг вместе с именами издателей.
 
 ```sql
 SELECT Title, PubName FROM Book;
 ```
 
-* В какой книге наибольшее количество страниц?
+### В какой книге наибольшее количество страниц?
 
 ```sql
-SELECT Title FROM Book WHERE PagesNum = MAX(PagesNum); 
+SELECT Title FROM Book 
+  WHERE PagesNum = MAX(PagesNum); 
 ```
 
-* Какие авторы написали более 5 книг?
+### Какие авторы написали более 5 книг?
 
 ```sql
-  SELECT Author, COUNT(Author) FROM Book 
-  GROUP BY Author HAVING COUNT(Author) > 5;
+SELECT Author 
+FROM Book 
+GROUP BY Author 
+HAVING count(*) > 5;
 ```
 
-* В каких книгах более чем в два раза больше страниц, чем среднее количество страниц для всех книг?
+### В каких книгах более чем в два раза больше страниц, чем среднее количество страниц для всех книг?
 
 ```sql
-SELECT * FROM Book WHERE PagesNum > (2 * AVG(PagesNum)); 
+SELECT * FROM Book 
+  WHERE PagesNum > (2 * AVG(PagesNum)); 
 ```
 
-* Какие категории содержат подкатегории?
+### Какие категории содержат подкатегории?
 
 ```sql
-SELECT DISTINCT a.CategoryName FROM Category a
-  INNER JOIN Category b ON a.CategoryName = b.ParentCat;
+SELECT DISTINCT c1.CategoryName FROM Category c1
+    WHERE EXISTS (SELECT * FROM Category c2 
+        WHERE c1.CategoryName = c2.ParentCat);
 ```
 
-* У какого автора (предположим, что имена авторов уникальны) написано максимальное количество книг?
-
-
-* Какие читатели забронировали   все книги (не копии), написанные "Марком Твеном"?
-
-
-* Какие книги имеют более одной копии?
+### У какого автора (предположим, что имена авторов уникальны) написано максимальное количество книг?
 
 ```sql
- SELECT ISBN, COUNT(*) as cnt FROM Copy GROUP BY ISBN HAVING cnt > 1;
+SELECT Author, count(*) AS BooksCount 
+    FROM Book GROUP BY Author ORDER BY
+        BooksCount DESC LIMIT 1;
 ```
 
-* ТОП 10 самых старых книг
+### Какие читатели забронировали   все книги (не копии), написанные "Марком Твеном"?
 
 ```sql
-SELECT * FROM Book ORDER BY PubYear LIMIT 10;
+SELECT r.ID FROM Reader r 
+    JOIN Borrowing bor ON r.ID = bor.ReaderNr 
+        JOIN Book b ON bor.ISBN = b.ISBN
+WHERE b.Author = 'Марк Твен'
+    GROUP BY r.ID HAVING COUNT(*) = (
+	    SELECT COUNT(*) FROM Book b 
+            WHERE b.Author = 'Марк Твен');
 ```
 
-* Перечислите все категории в категории “Спорт” (с любым уровнем вложености).
+### Какие книги имеют более одной копии?
 
+```sql
+ SELECT ISBN, COUNT(*) as cnt FROM Copy 
+  GROUP BY ISBN 
+  HAVING cnt > 1;
+```
 
-### 2
+### ТОП 10 самых старых книг
 
-* Добавьте запись о бронировании читателем ‘Василеем Петровым’ книги с ISBN 123456 и номером копии 4.
+```sql
+SELECT * FROM Book 
+  ORDER BY PubYear 
+  LIMIT 10;
+```
+
+### Перечислите все категории в категории “Спорт” (с любым уровнем вложености).
+
+```sql
+WITH RECURSIVE current_category AS
+(
+  SELECT * FROM Category
+    WHERE ParentCat = 'Спорт'
+        UNION ALL
+  SELECT subcategory.* FROM Category
+    JOIN current_category
+      ON ParentCat = current_category.CategoryName
+)
+SELECT DISTINCT CategoryName FROM current_category;
+```
+
+## 2
+
+### Добавьте запись о бронировании читателем ‘Василеем Петровым’ книги с ISBN 123456 и номером копии 4.
 
 ```sql
 INSERT INTO Borrowing (ReaderNr, ISBN, CopyNumber, ReturnDate)
-  SELECT ID, "123456", 4, null FROM Reader
-  WHERE FirstName = "Василий" AND LastName = "Петров";
+  SELECT ID, "123456", 4, Null FROM Reader rdr
+  WHERE rdr.FirstName = "Василий" AND rdr.LastName = "Петров";
 ```
 
-* Удалить все книги, год публикации которых превышает 2000 год.
+### Удалить все книги, год публикации которых превышает 2000 год.
 
 ```sql
 DELETE FROM Copy
@@ -79,7 +114,7 @@ WHERE ISBN IN (SELECT ISBN FROM Book WHERE PubYear > 2000);
 DELETE FROM Book WHERE PubYear > 2000;
 ```
 
-* Измените дату возврата для всех книг категории "Базы данных", начиная с 01.01.2016, чтобы они были в заимствовании на 30 дней дольше (предположим, что в SQL можно добавлять числа к датам).
+### Измените дату возврата для всех книг категории "Базы данных", начиная с 01.01.2016, чтобы они были в заимствовании на 30 дней дольше (предположим, что в SQL можно добавлять числа к датам).
 
 ```sql
 UPDATE Borrowing
@@ -90,18 +125,18 @@ WHERE ReturnDate >= Date("01.01.2016")
 ```
 
 
-### 3
+## 3
 
-1.
+### 1
 ```sql
 SELECT s.Name, s.MatrNr FROM Student s 
   WHERE NOT EXISTS ( 
     SELECT * FROM Check c WHERE c.MatrNr = s.MatrNr AND c.Note >= 4.0 ) ; 
 ```
 
-Вернуть имя студента и номер, если нет ни одной оценки больше или равно 4
+Выбрать имена и номера студентов, у которых все оценки меньше 4.0
 
-2.
+### 2
 ```sql
 ( SELECT p.ProfNr, p.Name, sum(lec.Credit) 
 FROM Professor p, Lecture lec 
@@ -114,9 +149,9 @@ WHERE NOT EXISTS (
   SELECT * FROM Lecture lec WHERE lec.ProfNr = p.ProfNr )); 
 ```
 
-Вернуть имя, номер и сумма всех кредитов для профессоров (для дефолтного значения, если лекций нет, принят ноль)
+Выбрать имена, номера и суммы всех кредитов для каждого профессора (если лекций нет, то кредитов 0)
 
-3.
+### 3
 ```sql
 SELECT s.Name, p.Note
   FROM Student s, Lecture lec, Check c
@@ -125,4 +160,4 @@ SELECT s.Name, p.Note
       SELECT c1.Note FROM Check c1 WHERE c1.MatrNr = c.MatrNr ) 
 ```
 
-Вернуть имена и наибольшие оценки студентов у которых наибольший балл выше или равен 4
+Выбрать имена и оценки студентов, у которых максимальный балл больше или равен 4
