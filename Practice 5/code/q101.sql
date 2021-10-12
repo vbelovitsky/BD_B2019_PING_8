@@ -1,5 +1,0 @@
-SELECT
-    TITLE,
-    AUTHOR
-FROM
-    BOOK;
