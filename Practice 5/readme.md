@@ -7,10 +7,10 @@
 1. Показать все названия книг вместе с именами издателей.
 ```sql
    SELECT
-       TITLE,
-       AUTHOR
+       title,
+       author
    FROM
-       BOOK;
+       book;
 ```
 
 2. В какой книге наибольшее количество страниц?
@@ -40,7 +40,7 @@
                author
        ) AS t
    WHERE
-       t.books_no > 1;
+       t.books_no > 5;
 ```
 
 4. В каких книгах более чем в два раза больше страниц, чем среднее количество страниц для всех книг?
@@ -91,13 +91,13 @@
 
 7. Какие читатели забронировали все книги (не копии), написанные "Марком Твеном"?
 ```sql
-   WITH mk_books AS (
+   WITH mark_twain_books AS (
        SELECT
            isbn
        FROM
            book
        WHERE
-           author = 'Марк Твейн'
+           author = 'Марк Твен'
    )
    SELECT
        rd.*
@@ -113,7 +113,7 @@
                    SELECT
                        *
                    FROM
-                       mk_books
+                       mark_twain_books
                )
            GROUP BY
                reader_nr
@@ -124,7 +124,7 @@
            SELECT
                count(*)
            FROM
-               mk_books
+               mark_twain_books
        );
 ```
 
@@ -154,7 +154,7 @@
    FROM
        book
    ORDER BY
-       pub_Year
+       pub_year
    LIMIT
        10;
 ```
