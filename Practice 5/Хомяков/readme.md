@@ -61,8 +61,8 @@
 
 5. Какие категории содержат подкатегории?
 ```sql
-   SELECT
-       category_name
+   SELECT 
+      DISTINCT PARENT_CAT
    FROM
        category
    WHERE
