@@ -151,3 +151,13 @@ WHERE day(connPart1.Arrival) = day(connPart2.Departure)
 ### Задача 3
 
 Представьте внешнее объединение (outer join ) в виде выражения реляционной алгебры с использованием только базовых операций (select, project, cartesian, rename, union, minus)
+
+Пусть</br>
+R1 = {A1, A2, ...}</br>
+R2 = {B1, B2, ...}
+
+Тогда
+
+Inner Join(A, B, stipulation) = project[A_1, ..., A_n, B_1, ..., B_m](select(cartesian(A, B), stipulation))
+
+Outer Join(A, B, condition) = union( Inner Join(A, B, stipulation), project[A_1, ..., A_n, NULL, ..., NULL](A - project[A_1, ..., A_n](Inner Join(A, B))), project[NULL, ..., NULL, B_1, ..., B_m](B - project[B_1, ..., B_m](Inner Join(A, B))))
