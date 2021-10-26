@@ -21,16 +21,17 @@ BookCat (***ISBN, CategoryName***)
 ``` sql
 SELECT r.LastName
 FROM Reader r
-WHERE r.Address = 'Москва';
+WHERE r.Address LIKE '%Москва%';
 ```
 
 ### б) Какие книги (author, title) брал Иван Иванов?
 
 ``` sql
 SELECT b.Author, b.Title
-FROM Reader r JOIN Borrowing borrow
+FROM Reader r
+JOIN Borrowing borrow
 ON r.ID = borrow.ReaderNr
-BorrowReader JOIN Book b
+JOIN Book b
 ON borrow.ISBN = b.ISBN
 WHERE r.FirstName = 'Иван' AND r.LastName = 'Иванов';
 ```
@@ -39,41 +40,41 @@ WHERE r.FirstName = 'Иван' AND r.LastName = 'Иванов';
 
 ``` sql
 SELECT bcat.ISBN
-FROM BookCat bcat
-WHERE bcat.CategoryName = 'Горы' AND
-bcat.CategoryName NOT IN 
+FROM BookCat bcat1
+WHERE bcat1.CategoryName = 'Горы' AND
+bcat1.CategoryName NOT IN 
 SELECT DISTINCT bc.ISBN
-FROM BookCat bc
-WHERE bc.CategoryName != 'Путешествия';
+FROM BookCat bcat2
+WHERE bcat2.CategoryName = 'Путешествия';
 ```
 
-### г) Какие читатели (LastName, FirstName) брали книги, которые были возвращены?
+### г) Какие читатели (LastName, FirstName) вернули копию книги?
 
 ``` sql
 SELECT r.FirstName, r.LastName
 FROM Borrowing borrow JOIN Reader r
 ON borrow.ReaderNr = r.ID
-WHERE borrow.ReturnDate IS NOT NULL;
+WHERE borrow.ReturnDate < NOW();
 ```
 
-### д) Какие читатели (LastName, FirstName) брали хотя бы одну книгу, которую брал также Иван Иванов (не включайте Ивана Иванова в результат)?
+### д) Какие читатели (LastName, FirstName) брали хотя бы одну книгу (не копию), которую брал также Иван Иванов (не включайте Ивана Иванова в результат)?
 
 ``` sql
-WITH IvanIvanov AS (SELECT ID
+ReaderBorrowing AS
+(SELECT r.FirstName, r.LastName
 FROM Reader r
-WHERE r.Lastname = 'Иванов' AND r.FirstName = 'Иван'),
-
-IvanIvanovBooks AS (SELECT ISBN
-FROM Borrowing borrow
-WHERE ReaderNr = IvanIvanov),
-
-ReaderNumbers AS (SELECT DISTINCT ReaderNr
-FROM Borrowing
-WHERE ISBN IN IvanIvanovBooks)
+JOIN Borrowing borrow
+ON borrow.ReaderNr = r.ID)
 
 SELECT r.FirstName, r.LastName
-FROM Reader r JOIN ReaderNumbers rn
-ON r.ID = rn.ReaderNr;
+FROM ReaderBorrowing
+WHERE r.lastName != 'Иванов' AND
+r.firstName != 'Иван' AND
+borrow.ISBN IN
+(SELECT borrow.ISBN
+FROM ReaderBorrowing
+WHERE r.lastName = 'Иванов'
+AND r.firstName = 'Иван');
 ```
 
 ## Задача 2
@@ -92,7 +93,8 @@ Connection (***FromStation***, ToStation, ***TrainNr***, Departure, Arrival)
 
 ``` sql
 SELECT con.FromStation, con.ToStation, con.TrainNr, con.Departure, con.Arrival
-FROM Connection con JOIN Station startStation
+FROM Connection con
+JOIN Station startStation
 ON startStation.Name = connection.fromStation 
 JOIN station endStation 
 ON endStation.Name = connection.toStation
