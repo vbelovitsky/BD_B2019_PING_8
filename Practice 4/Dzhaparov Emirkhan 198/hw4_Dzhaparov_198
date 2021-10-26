@@ -1,0 +1,180 @@
+# Джапаров Эмирхан БПИ198. Задание 4.
+
+
+## Задача 1.
+Возьмите библиотечную систему, схему которой сделали на предыдущем задании
+
+```
+Reader ( ID, LastName, FirstName, Address, BirthDate) 
+Borrowing ( ReaderNr, ISBN, CopyNumber, ReturnDate) 
+BookCat ( ISBN, CategoryName )
+Book ( ISBN, Title, Author, PagesNum, PubYear, PubName) 
+Copy ( ISBN, CopyNumber, ShelfPosition)
+Category ( CategoryName, ParentCat) 
+Publisher ( PubName, PubAdress) 
+```
+
+Напишите SQL-запросы (или выражения реляционной алгебры) для следующих вопросов: 
+
+### а) Какие фамилии читателей в Москве?
+``` sql
+SELECT LastName
+FROM Reader
+WHERE Address LIKE '%Москва%'
+```
+
+### б) Какие книги (author, title) брал Иван Иванов?
+``` sql
+SELECT author, title
+FROM book
+INNER JOIN Borrowing
+ON Borrowing.ISBN = Book.ISBN
+INNER JOIN Reader
+ON reader.ID = borrowing.readerNr
+WHERE reader.firstName = 'Иван'
+    AND reader.LastName = 'Иванов'
+```
+#### <i> Способ в лоб: </i>
+``` sql
+Select Title, Author 
+FROM Book 
+WHERE ISBN IN 
+    ( SELECT ISBN
+      FROM Borrowing
+      WHERE ReaderNr = 
+        (  	SELECT ID
+            FROM Reader
+            WHERE FirstName = 'Иван' AND LastName = 'Иванов'    
+		) 
+	) 
+```
+
+### в) Какие книги (ISBN) из категории "Горы" не относятся к категории "Путешествия"? Подкатегории не обязательно принимать во внимание!
+
+``` sql
+SELECT ISBN from 
+    ( SELECT ISBN from BookCat WHERE CategoryName = 'Горы' )
+    minus
+    ( SELECT ISBN FROM BookCat WHERE CategoryName = 'Путешествия' )
+```
+
+### г) Какие читатели (LastName, FirstName) вернули копию книги?
+``` sql
+SELECT lasbName, firstName
+FROM borrowing
+INNER JOIN reader
+IN reader.ID = borrowing.readerNr
+WHERE returnDate < GETDATE()
+```
+<i> GETDATE() - возвращает текущий момент времени. </i> 
+
+<i> Второй способ: </i>
+
+``` sql
+SELECT LastName, FirstName FROM Reader WHERE ID IN 
+    ( SELECT ReaderNr FROM Borrowing 
+      WHERE ReturnDate <  GETDATE()
+    )
+```
+
+### д) Какие читатели (LastName, FirstName) брали хотя бы одну книгу, которую брал также Иван Иванов (не включайте Ивана Иванова в результат)?
+
+``` sql
+SELECT LastName, FirstName
+FROM Reader
+INNER JOIN Borrowing
+ON Reader.ID = Borrowing.ReaderNr
+WHERE ISBN IN
+	(
+		SELECT ISBN 
+		FROM Borrowing
+		INNER JOIN Reader
+		ON Reader.FirstName = 'Иван' AND Reader.LastName = 'Иванов'
+	)
+	AND
+	Reader.FirstName != 'Иван' AND Reader.LastName != 'Иванов'
+```
+
+## Задача 2.
+
+City (Name, Region)</br>
+Station (Name, #Tracks, CityName, Region)</br>
+Train (TrainNr, Length, StartStationName, EndStationName)</br>
+Connection (FromStation, ToStation, TrainNr, Departure, Arrival)</br>
+
+Предположим, что отношение "Connection" уже содержит транзитивное замыкание. Когда поезд 101 отправляется из Москвы в Санкт-Петербург через Тверь, содержит кортежи для связи Москва->Тверь, Тверь-Санкт-Петербург и Москва->Санкт-Петербург. Сформулируйте следующие запросы в реляционной алгебре:
+
+### а) Найдите все прямые рейсы из Москвы в Тверь.
+``` sql
+SELECT DISTINCT way.TrainNr
+FROM Connection way
+JOIN Station from_station 
+ON from_station.Name = way.FromStation
+JOIN Station to_station 
+ON to_station.Name = way.ToStation
+WHERE from_station.CityName = 'Москва' AND to_station.CityName = 'Тверь'
+EXCEPT
+SELECT way.TrainNr
+FROM Connection way
+JOIN Station from_station 
+ON from_station.Name = way.FromStation
+JOIN Station to_station 
+ON to_station.Name = way.ToStation
+WHERE  from_station.CityName != 'Москва' OR to_station.CityName != 'Тверь'
+```
+
+### б) Найдите все многосегментные маршруты, имеющие точно однодневный трансфер из Москвы в Санкт-Петербург (первое отправление и прибытие в конечную точку должны быть в одну и ту же дату). Вы можете применить функцию DAY () к атрибутам Departure и Arrival, чтобы определить дату.
+``` sql
+SELECT DISTINCT way_1.TrainNr
+FROM Сonnection way_1
+JOIN Connection way_2 
+ON way_2.TrainNr = way_1.TrainNr
+JOIN Station from_station_1 
+ON from_station_1.Name = way_1.FromStation
+JOIN Station to_station_1 
+ON to_station_1.Name = way_1.ToStation
+JOIN Station from_station_2 
+ON from_station_2.Name = way_2.FromStation
+JOIN Station to_station_2 
+ON to_station_2.Name = way_2.ToStation
+WHERE
+from_station_1.CityName = 'Москва' AND to_station_1.CityName = 'Санкт-Петербург' AND Day(way_1.Departure) = Day(way_1.Arrival)
+AND (from_station_2.CityName != 'Москва' OR to_station_2.CityName != 'Санкт-Петербург') 
+```
+
+### в) Что изменится в выражениях для а) и б), если отношение "Connection" не содержит дополнительных кортежей для транзитивного замыкания, поэтому многосегментный маршрут Москва-> Тверь-> Санкт-Петербург содержит только кортежи Москва-> Тверь и Тверь-Санкт-Петербург?
+
+В пункте а) все кортежи теперь являются прямыми рейсами, поскольку нет транзитивных замыканий.
+
+
+## Задача 3.
+
+### Представьте внешнее объединение (outer join ) в виде выражения реляционной алгебры с использованием только базовых операций (select, project, cartesian, rename, union, minus)
+<br>
+
+<b>
+
+```
+inner_	join = Pi(s, Sigma(p, E1 x E2))
+
+left_outer_join = Pi(s, Sigma(p, E1 x E2)) U E1 \ E2
+
+right_outer_join = Pi(s, Sigma(p, E1 x E2)) U E2 \ E1
+
+```
+
+</b>
+
+<i> U - объединение, Pi - проекция, Sigma - селекция, первые аргументы операторов - это предикаты. </i>
+
+
+
+
+
+
+
+
+
+
+
+
