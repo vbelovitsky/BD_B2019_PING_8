@@ -1,4 +1,4 @@
-# 1.
+### 1.
  ```sql
  SELECT EXTRACT(YEAR FROM pl.birthdate), COUNT(DISTINCT pl.player_id), COUNT(res.medal) FROM players pl
  JOIN results res ON pl.player_id = res.player_id
@@ -8,7 +8,7 @@
  GROUP BY EXTRACT(YEAR FROM pl.birthdate)
  ```
 
- # 2.
+ ### 2.
  ```sql
  SELECT event.event_id FROM Events event
  JOIN results res ON event.event_id = res.event_id
@@ -18,7 +18,7 @@
  HAVING COUNT(res.medal) > 1
  ```
 
- # 3.
+ ### 3.
  Найдите всех игроков, которые выиграли хотя бы одну медаль (GOLD, SILVER и BRONZE) на одной Олимпиаде. (player-name, olympic-id).
  (Тут на самом деле не очень понятно - которые выиграли хоты бы одну медаль в каждой категории gold, silver и bronze или хотя бы одну медаль вообще)
 
@@ -29,7 +29,7 @@ JOIN events e ON r.event_id = e.event_id
 JOIN olympics olymps ON e.olympic_id = olymp.olympic_id
  ```
 
- # 4.
+ ### 4.
  ```sql
 SELECT c.country_id
 FROM countries c, players p
@@ -39,7 +39,7 @@ ORDER BY count(*) desc
 LIMIT 1
  ```
 
- # №5:
+ ### 5.
  ```sql
  SELECT c.country_id FROM olympics o
  JOIN events e ON e.olympic_id = o.olympic_id
