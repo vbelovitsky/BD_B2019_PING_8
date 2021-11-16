@@ -10,5 +10,9 @@
 
         // Позиция на полке.
         public int ShelfPosition { get; set; }
+        
+        public override string ToString()
+            => $"Copy's ISBN = {Isbn}; CopyNumber = {CopyNumber}; " +
+               $"ShelfPosition = {ShelfPosition}";
     }
 }

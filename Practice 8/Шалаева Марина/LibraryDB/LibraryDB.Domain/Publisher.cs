@@ -9,5 +9,8 @@ namespace LibraryDB.Domain
 
         // Адрес издательства.
         public string PubAddress { get; set; }
+
+        public override string ToString()
+            => $"Publisher's name: {PubName}; address: {PubAddress}";
     }
 }

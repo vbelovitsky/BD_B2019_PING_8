@@ -15,5 +15,9 @@ namespace LibraryDB.Domain
         
         // Дата возврата копии книги.
         public DateTime ReturnDate{ get; set; }
+        
+        public override string ToString()
+            => $"Borrowing's ReaderNr = {ReaderNr}; ISBN = {Isbn}; CopyNumber = {CopyNumber}; " +
+               $"ReturnDate = {ReturnDate.Date}";
     }
 }

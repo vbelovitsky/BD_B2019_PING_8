@@ -18,5 +18,9 @@ namespace LibraryDB.Domain
 
         // День рождения читателя.
         public DateTime BirthDate { get; set; }
+        
+        public override string ToString()
+            => $"Reader's Id = {Id}; LastName = {LastName}; FirstName = {FirstName}; " +
+               $"Address = {Address}; BirthDate = {BirthDate.Date}";
     }
 }

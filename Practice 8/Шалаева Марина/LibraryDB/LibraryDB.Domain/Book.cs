@@ -21,5 +21,10 @@ namespace LibraryDB.Domain
 
         // Название издательства, выпустившего книгу.
         public string PubName { get; set; }
+
+        public override string ToString()
+            => $"Book's ISBN = {Isbn}; Title = {Title}; " +
+               $"Author = {Author}; PagesNum = {PagesNum}; PubYear = {PubYear}; " +
+               $"PubName = {PubName}";
     }
 }

@@ -45,7 +45,11 @@ namespace LibraryDB.Web
 
             services.AddHttpContextAccessor();
 
-            services.AddScoped<LibraryService>();
+            services.AddScoped<BookService>();
+            services.AddScoped<BorrowingService>();
+            services.AddScoped<CopyService>();
+            services.AddScoped<PublisherService>();
+            services.AddScoped<ReaderService>();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
