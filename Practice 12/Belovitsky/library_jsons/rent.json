@@ -1,0 +1,21 @@
+{
+	"Id": 34,
+	"ReturnDate": "10.01.2022",
+	
+	"Book":{
+		"Id": 3,
+		"Position": 15,
+		"ISBN": "978-3-16-148410-0",
+		"Year" : 2000,
+		"Name": "Tom Sawyer",
+		"Author": "Mark Twain",
+		"PageNumber": 350
+	},
+	"Reader":{
+		"Id": 34,
+		"Firstname": "Владислав",
+		"Lastname": "Беловицкий",
+		"Address": "Москва",
+		"Birthdate": "11.02.2001"
+	}
+}

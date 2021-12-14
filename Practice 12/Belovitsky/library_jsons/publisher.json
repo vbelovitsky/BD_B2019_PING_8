@@ -1,0 +1,16 @@
+{
+	"Id": 1,
+	"Name": "Лабиринт",
+	"Address": "Москва",
+	
+	"Books":[
+		{
+			"ISBN": "978-3-16-148410-0",
+			"Year" : 2000,
+			"Name": "Tom Sawyer",
+			"Author": "Mark Twain",
+			"PageNumber": 350,
+			"PublisherId": 1
+		}
+	]
+}

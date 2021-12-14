@@ -1,0 +1,27 @@
+{
+	"ISBN": "978-3-16-148410-0",
+	"Year" : 2000,
+	"Name": "Tom Sawyer",
+	"Author": "Mark Twain",
+	"PageNumber": 350,
+	
+	"Publisher":{
+		"Id": 1,
+		"Name": "Лабиринт",
+		"Address": "Москва"
+	},
+	"Categories":[
+		"0": "Adventure",
+		"1": "Horror",
+	],
+	"Copies":[
+		{
+			"Id": 3,
+			"Position": 15
+		},
+		{
+			"Id": 4,
+			"Position": 16
+		}
+	]
+}
